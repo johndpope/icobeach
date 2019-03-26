@@ -128,7 +128,7 @@ class IcobenchDetailSpider(scrapy.Spider):
         video = ''
         video_div = response.xpath("//*[@id='profile_header']/div/div[1]/div[3]")
         print('video_div:', video_div)
-        if video_div != '[]':
+        if video_div != []:
             video = response.xpath("//*[@id='profile_header']/div/div[1]/div[3]/@onclick").extract()[0].split('\'')[1]
 
         # 行业标签
