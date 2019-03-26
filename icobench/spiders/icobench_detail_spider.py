@@ -16,25 +16,25 @@ class IcobenchDetailSpider(scrapy.Spider):
         model = 2
         if model == 1:
             # 踩多条数据
-            scrapyProjectLists = ScrapyProjectListModel().get_list()
-            for scrapyProjectList in scrapyProjectLists:
-                page_href = scrapyProjectList.page_href
-                print('page_href:' + page_href)
-                print('start_time:' + '111')
-                yield scrapy.Request(url=page_href, callback=self.detail_parse, meta={"scrapyProjectListId": scrapyProjectList.id})
-                # 关闭数据库
-                scrapy_db.close()
-                print('start_time:' + '关闭数据库')
-                time.sleep(30)
+            # scrapyProjectLists = ScrapyProjectListModel().get_list()
+            # for scrapyProjectList in scrapyProjectLists:
+            #     page_href = scrapyProjectList.page_href
+            #     print('page_href:' + page_href)
+            #     print('start_time:' + '111')
+            #     yield scrapy.Request(url=page_href, callback=self.detail_parse, meta={"scrapyProjectListId": scrapyProjectList.id})
+            #     # 关闭数据库
+            #     scrapy_db.close()
+            #     print('start_time:' + '关闭数据库')
+            #     time.sleep(30)
 
 
-            # # 踩一条数据
-            # scrapyProjectList = ScrapyProjectListModel().get_by_id(3)
-            # page_href = scrapyProjectList.page_href
-            # print('page_href:' + page_href)
-            # yield scrapy.Request(url=page_href, callback=self.detail_parse, meta={"scrapyProjectListId": scrapyProjectList.id})
-            # # 关闭数据库
-            # scrapy_db.close()
+            # 踩一条数据
+            scrapyProjectList = ScrapyProjectListModel().get_by_id(154)
+            page_href = scrapyProjectList.page_href
+            print('page_href:' + page_href)
+            yield scrapy.Request(url=page_href, callback=self.detail_parse, meta={"scrapyProjectListId": scrapyProjectList.id})
+            # 关闭数据库
+            scrapy_db.close()
         if model == 2:
             print('retry_requests:' + 'retry_requests')
             print("wired")
@@ -117,8 +117,12 @@ class IcobenchDetailSpider(scrapy.Spider):
             "//*[@id='profile_content']/div/div[1]/div[2]/div/a[" + str(white_paper_div_len) + "]/@href").extract()[0]
         print('white_paper:', white_paper)
         # 视频链接
-        video = response.xpath("//*[@id='profile_header']/div/div[1]/div[3]/@onclick").extract()[0].split('\'')[1]
-        print('video:', video)
+        video = ''
+        video_div = response.xpath("//*[@id='profile_header']/div/div[1]/div[3]")
+        print('video_div:', video_div)
+        if video_div == '[]':
+            video = response.xpath("//*[@id='profile_header']/div/div[1]/div[3]/@onclick").extract()[0].split('\'')[1]
+
         # 行业标签
         industry_div = response.xpath("//*[@id='profile_header']/div/div[1]/div[2]/a")
         print('industry_div:', industry_div)
@@ -196,8 +200,12 @@ class IcobenchDetailSpider(scrapy.Spider):
                         print('ico_accepting:', ico_accepting)
 
         # 判断预售开始时间是否存在
-        ico_preico_date_label = \
-            response.xpath("//*[@id='profile_header']/div/div[2]/div[4]/div[1]/div/label/text()").extract()[0].strip()
+        ico_preico_date_label_is = response.xpath("//*[@id='profile_header']/div/div[2]/div[4]/div[1]/div/label").extract()[0].strip()
+        if ico_preico_date_label_is is None:
+            ico_preico_date_label = ''
+        else:
+            ico_preico_date_label = response.xpath("//*[@id='profile_header']/div/div[2]/div[4]/div[1]/div/label/text()").extract()[
+                    0].strip()
         # 预售开始时间
         ico_preico_start_date = ''
         # 预售结束时间
@@ -301,7 +309,10 @@ class IcobenchDetailSpider(scrapy.Spider):
         if ico_distributed_in == 0:
             ico_token_supply = 0
         else:
-            ico_token_supply = int(tokens_for_sale.replace(',', '')) / ico_distributed_in
+            if tokens_for_sale == 0:
+                ico_token_supply = 0
+            else:
+                ico_token_supply = int(tokens_for_sale.replace(',', '')) / ico_distributed_in
         print('ico_token_supply:', ico_token_supply)
 
         # 判断公募开始时间是否存在
