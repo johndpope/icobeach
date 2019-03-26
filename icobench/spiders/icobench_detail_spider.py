@@ -13,28 +13,28 @@ class IcobenchDetailSpider(scrapy.Spider):
 
     def start_requests(self):
 
-        model = 2
+        model = 1
         if model == 1:
             # 踩多条数据
-            scrapyProjectLists = ScrapyProjectListModel().get_list()
-            for scrapyProjectList in scrapyProjectLists:
-                page_href = scrapyProjectList.page_href
-                print('page_href:' + page_href)
-                print('start_time:' + '111')
-                yield scrapy.Request(url=page_href, callback=self.detail_parse, meta={"scrapyProjectListId": scrapyProjectList.id})
-                # 关闭数据库
-                scrapy_db.close()
-                print('start_time:' + '关闭数据库')
-                time.sleep(30)
+            # scrapyProjectLists = ScrapyProjectListModel().get_list()
+            # for scrapyProjectList in scrapyProjectLists:
+            #     page_href = scrapyProjectList.page_href
+            #     print('page_href:' + page_href)
+            #     print('start_time:' + '111')
+            #     yield scrapy.Request(url=page_href, callback=self.detail_parse, meta={"scrapyProjectListId": scrapyProjectList.id})
+            #     # 关闭数据库
+            #     scrapy_db.close()
+            #     print('start_time:' + '关闭数据库')
+            #     time.sleep(30)
 
             # 踩一条数据
-            # scrapyProjectList = ScrapyProjectListModel().get_by_id(53)
-            # page_href = scrapyProjectList.page_href
-            # print('page_href:' + page_href)
-            # yield scrapy.Request(url=page_href, callback=self.detail_parse,
-            #                      meta={"scrapyProjectListId": scrapyProjectList.id})
-            # # 关闭数据库
-            # scrapy_db.close()
+            scrapyProjectList = ScrapyProjectListModel().get_by_id(40)
+            page_href = scrapyProjectList.page_href
+            print('page_href:' + page_href)
+            yield scrapy.Request(url=page_href, callback=self.detail_parse,
+                                 meta={"scrapyProjectListId": scrapyProjectList.id})
+            # 关闭数据库
+            scrapy_db.close()
         if model == 2:
             print('retry_requests:' + 'retry_requests')
             print("wired")
@@ -496,9 +496,18 @@ class IcobenchDetailSpider(scrapy.Spider):
         for roadmap_div_len_num in range(1, roadmap_div_len + 1):
             print('roadmap_div_len_num:', roadmap_div_len_num)
             # 时间
-            roadmap_time = response.xpath(
-                "// *[ @id='milestones']/div/div[" + str(roadmap_div_len_num) + "]/div[2]/div[2]/text()").extract()[
-                0].strip()
+            # roadmap_time_div = response.xpath(
+            #     "// *[ @id='milestones']/div/div[" + str(roadmap_div_len_num) + "]/div[2]/div[2]/text()").extract()[
+            #     0].strip()
+            roadmap_time = ''
+            roadmap_time_div = response.xpath(
+                "// *[ @id='milestones']/div/div[" + str(roadmap_div_len_num) + "]/div[2]/div[2]/text()")
+            print('roadmap_time_div:', roadmap_time_div)
+            if roadmap_time_div != []:
+                roadmap_time = response.xpath(
+                    "// *[ @id='milestones']/div/div[" + str(roadmap_div_len_num) + "]/div[2]/div[2]/text()").extract()[0].strip()
+            # else:
+            #     roadmap_time = ''
             print('roadmap_time:', roadmap_time)
             # 目标
             roadmap_target = \
