@@ -13,28 +13,28 @@ class IcobenchDetailSpider(scrapy.Spider):
 
     def start_requests(self):
 
-        model = 2
+        model = 1
         if model == 1:
             # 踩多条数据
-            scrapyProjectLists = ScrapyProjectListModel().get_list()
-            for scrapyProjectList in scrapyProjectLists:
-                page_href = scrapyProjectList.page_href
-                print('page_href:' + page_href)
-                print('start_time:' + '111')
-                yield scrapy.Request(url=page_href, callback=self.detail_parse, meta={"scrapyProjectListId": scrapyProjectList.id})
-                # 关闭数据库
-                scrapy_db.close()
-                print('start_time:' + '关闭数据库')
-                time.sleep(30)
+            # scrapyProjectLists = ScrapyProjectListModel().get_list()
+            # for scrapyProjectList in scrapyProjectLists:
+            #     page_href = scrapyProjectList.page_href
+            #     print('page_href:' + page_href)
+            #     print('start_time:' + '111')
+            #     yield scrapy.Request(url=page_href, callback=self.detail_parse, meta={"scrapyProjectListId": scrapyProjectList.id})
+            #     # 关闭数据库
+            #     scrapy_db.close()
+            #     print('start_time:' + '关闭数据库')
+            #     time.sleep(30)
 
             # 踩一条数据
-            # scrapyProjectList = ScrapyProjectListModel().get_by_id(12)
-            # page_href = scrapyProjectList.page_href
-            # print('page_href:' + page_href)
-            # yield scrapy.Request(url=page_href, callback=self.detail_parse,
-            #                      meta={"scrapyProjectListId": scrapyProjectList.id})
+            scrapyProjectList = ScrapyProjectListModel().get_by_id(53)
+            page_href = scrapyProjectList.page_href
+            print('page_href:' + page_href)
+            yield scrapy.Request(url=page_href, callback=self.detail_parse,
+                                 meta={"scrapyProjectListId": scrapyProjectList.id})
             # 关闭数据库
-            # scrapy_db.close()
+            scrapy_db.close()
         if model == 2:
             print('retry_requests:' + 'retry_requests')
             print("wired")
@@ -62,10 +62,11 @@ class IcobenchDetailSpider(scrapy.Spider):
             for project_list_id in m_list:
                 print('project_list_id:', project_list_id)
                 project_list = ScrapyProjectListModel().get_by_id(project_list_id)
-                page_url = project_list.page_href
-                print(page_url)
-                yield scrapy.Request(url=page_url, callback=self.detail_parse,
-                                     meta={"scrapyProjectListId": project_list_id})
+                if project_list is not None:
+                    page_url = project_list.page_href
+                    print(page_url)
+                    yield scrapy.Request(url=page_url, callback=self.detail_parse,
+                                        meta={"scrapyProjectListId": project_list_id})
                 # 关闭数据库
                 scrapy_db.close()
 
@@ -78,8 +79,15 @@ class IcobenchDetailSpider(scrapy.Spider):
         print('scrapyProjectList_id:' + str(scrapyProjectList_id))
         print('detail_parse:' + 'detail_parse')
         # 项目名称
-        project_name = response.xpath("//*[@id='profile_header']/div/div[1]/div[1]/div[2]/h1/text()").extract()[
-            0].strip()
+        project_name_div = response.xpath("//*[@id='profile_header']/div/div[1]/div[1]/div[2]/h1")
+        project_name = ''
+        if project_name_div != '[]':
+            project_name = response.xpath("//*[@id='profile_header']/div/div[1]/div[1]/div[2]/h1/text()").extract()[
+                0].strip()
+        else:
+            project_name = response.xpath("// *[ @ id = 'profile_header']/div/div[2]/div[1]/div[2]/h1/text()").extract()[
+                0].strip()
+
         print("project_name:", project_name)
         # 存储文件相关
         current_path = os.path.abspath(__file__)
@@ -187,7 +195,7 @@ class IcobenchDetailSpider(scrapy.Spider):
                     if ico_div_name == 'Distributed in ICO':
                         ico_circulating_supply = response.xpath("//*[@id='financial']/div/div[2]/div[" + str(
                             ico_investment_info_div_len_num) + "]/div[2]/text()").extract()[0].strip()
-                        ico_circulating_supply = float(ico_circulating_supply.strip('%'))  # 去掉s 字符串中的 %
+                        ico_circulating_supply = float(ico_circulating_supply.strip('%').replace(',', ''))  # 去掉s 字符串中的 %
                         print('ico_circulating_supply:', ico_circulating_supply)
                         # 变成小数
                         ico_distributed_in = ico_circulating_supply / 100.0
@@ -574,8 +582,8 @@ if __name__ == '__main__':
     # len_num = 1
     # for len_num in range(1, 3):
     #     print('len_num:', len_num)
-    ico_preico_date_label_is=[]
-    if ico_preico_date_label_is != []:
-       print('sss'+'ss')
-    else:
-        print('dd'+'sss')
+    ico_circulating_supply = '9125%'
+    demo = ico_circulating_supply.strip('%')
+    print("111:"+ico_circulating_supply.strip('%'))
+    print("2222:"+demo.replace(',', ''))
+    ico_circulating_supply = float(demo.replace(',', ''))  # 去掉s 字符串中的 %
