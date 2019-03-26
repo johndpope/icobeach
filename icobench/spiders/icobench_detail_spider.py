@@ -16,25 +16,25 @@ class IcobenchDetailSpider(scrapy.Spider):
         model = 2
         if model == 1:
             # 踩多条数据
-            # scrapyProjectLists = ScrapyProjectListModel().get_list()
-            # for scrapyProjectList in scrapyProjectLists:
-            #     page_href = scrapyProjectList.page_href
-            #     print('page_href:' + page_href)
-            #     print('start_time:' + '111')
-            #     yield scrapy.Request(url=page_href, callback=self.detail_parse, meta={"scrapyProjectListId": scrapyProjectList.id})
-            #     # 关闭数据库
-            #     scrapy_db.close()
-            #     print('start_time:' + '关闭数据库')
-            #     time.sleep(30)
-
+            scrapyProjectLists = ScrapyProjectListModel().get_list()
+            for scrapyProjectList in scrapyProjectLists:
+                page_href = scrapyProjectList.page_href
+                print('page_href:' + page_href)
+                print('start_time:' + '111')
+                yield scrapy.Request(url=page_href, callback=self.detail_parse, meta={"scrapyProjectListId": scrapyProjectList.id})
+                # 关闭数据库
+                scrapy_db.close()
+                print('start_time:' + '关闭数据库')
+                time.sleep(30)
 
             # 踩一条数据
-            scrapyProjectList = ScrapyProjectListModel().get_by_id(154)
-            page_href = scrapyProjectList.page_href
-            print('page_href:' + page_href)
-            yield scrapy.Request(url=page_href, callback=self.detail_parse, meta={"scrapyProjectListId": scrapyProjectList.id})
+            # scrapyProjectList = ScrapyProjectListModel().get_by_id(12)
+            # page_href = scrapyProjectList.page_href
+            # print('page_href:' + page_href)
+            # yield scrapy.Request(url=page_href, callback=self.detail_parse,
+            #                      meta={"scrapyProjectListId": scrapyProjectList.id})
             # 关闭数据库
-            scrapy_db.close()
+            # scrapy_db.close()
         if model == 2:
             print('retry_requests:' + 'retry_requests')
             print("wired")
@@ -64,10 +64,10 @@ class IcobenchDetailSpider(scrapy.Spider):
                 project_list = ScrapyProjectListModel().get_by_id(project_list_id)
                 page_url = project_list.page_href
                 print(page_url)
-                yield scrapy.Request(url=page_url, callback=self.detail_parse, meta={"scrapyProjectListId": project_list_id})
+                yield scrapy.Request(url=page_url, callback=self.detail_parse,
+                                     meta={"scrapyProjectListId": project_list_id})
                 # 关闭数据库
                 scrapy_db.close()
-
 
     def detail_parse(self, response):
         meta_data = response.meta
@@ -120,7 +120,7 @@ class IcobenchDetailSpider(scrapy.Spider):
         video = ''
         video_div = response.xpath("//*[@id='profile_header']/div/div[1]/div[3]")
         print('video_div:', video_div)
-        if video_div == '[]':
+        if video_div != '[]':
             video = response.xpath("//*[@id='profile_header']/div/div[1]/div[3]/@onclick").extract()[0].split('\'')[1]
 
         # 行业标签
@@ -200,12 +200,14 @@ class IcobenchDetailSpider(scrapy.Spider):
                         print('ico_accepting:', ico_accepting)
 
         # 判断预售开始时间是否存在
-        ico_preico_date_label_is = response.xpath("//*[@id='profile_header']/div/div[2]/div[4]/div[1]/div/label").extract()[0].strip()
-        if ico_preico_date_label_is is None:
-            ico_preico_date_label = ''
-        else:
-            ico_preico_date_label = response.xpath("//*[@id='profile_header']/div/div[2]/div[4]/div[1]/div/label/text()").extract()[
+        ico_preico_date_label_value = response.xpath("//*[@id='profile_header']/div/div[2]/div[4]/div[1]/div/label")
+        print('ico_preico_date_label_value:', ico_preico_date_label_value)
+        if ico_preico_date_label_value != []:
+            ico_preico_date_label = \
+                response.xpath("//*[@id='profile_header']/div/div[2]/div[4]/div[1]/div/label/text()").extract()[
                     0].strip()
+        else:
+            ico_preico_date_label = ''
         # 预售开始时间
         ico_preico_start_date = ''
         # 预售结束时间
@@ -324,9 +326,15 @@ class IcobenchDetailSpider(scrapy.Spider):
             print('ico_public_date_len_num:', ico_public_date_len_num)
             ico_public_date_label = response.xpath(
                 "//*[@id='profile_header']/div/div[2]/div[4]/div[" + str(
-                    ico_public_date_len_num) + "]/div/label/text()").extract()[
-                0].strip()
-            if ico_public_date_label == 'ICO Time':
+                    ico_public_date_len_num) + "]/div/label")
+            if ico_public_date_label != []:
+                ico_public_date_label_value = response.xpath(
+                    "//*[@id='profile_header']/div/div[2]/div[4]/div[" + str(
+                        ico_public_date_len_num) + "]/div/label/text()").extract()[
+                    0].strip()
+            else:
+                ico_public_date_label_value = ''
+            if ico_public_date_label_value == 'ICO Time':
                 # 公募开始时间
                 ico_public_date = response.xpath(
                     "//*[@id='profile_header']/div/div[2]/div[4]/div[" + str(
@@ -362,7 +370,9 @@ class IcobenchDetailSpider(scrapy.Spider):
             print('media_link:', media_link)
             # 官网
             if media_name == 'WWW':
-                homepage = response.xpath("//*[@id='profile_header']/div/div[2]/div[5]/a[" + str(media_len_num) + "]/@href").extract()[0].strip()
+                homepage = response.xpath(
+                    "//*[@id='profile_header']/div/div[2]/div[5]/a[" + str(media_len_num) + "]/@href").extract()[
+                    0].strip()
                 print('homepage:', homepage)
         print('media_dict:', media_dict)
 
@@ -564,3 +574,8 @@ if __name__ == '__main__':
     # len_num = 1
     # for len_num in range(1, 3):
     #     print('len_num:', len_num)
+    ico_preico_date_label_is=[]
+    if ico_preico_date_label_is != []:
+       print('sss'+'ss')
+    else:
+        print('dd'+'sss')
