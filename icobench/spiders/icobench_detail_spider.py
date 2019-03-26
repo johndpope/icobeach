@@ -13,7 +13,7 @@ class IcobenchDetailSpider(scrapy.Spider):
 
     def start_requests(self):
 
-        model = 1
+        model = 2
         if model == 1:
             # 踩多条数据
             scrapyProjectLists = ScrapyProjectListModel().get_list()
