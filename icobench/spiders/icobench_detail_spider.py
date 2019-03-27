@@ -16,25 +16,25 @@ class IcobenchDetailSpider(scrapy.Spider):
         model = 2
         if model == 1:
             # 踩多条数据
-            scrapyProjectLists = ScrapyProjectListModel().get_list()
-            for scrapyProjectList in scrapyProjectLists:
-                page_href = scrapyProjectList.page_href
-                print('page_href:' + page_href)
-                print('start_time:' + '111')
-                yield scrapy.Request(url=page_href, callback=self.detail_parse, meta={"scrapyProjectListId": scrapyProjectList.id})
-                # 关闭数据库
-                scrapy_db.close()
-                print('start_time:' + '关闭数据库')
-                time.sleep(30)
+            # scrapyProjectLists = ScrapyProjectListModel().get_list()
+            # for scrapyProjectList in scrapyProjectLists:
+            #     page_href = scrapyProjectList.page_href
+            #     print('page_href:' + page_href)
+            #     print('start_time:' + '111')
+            #     yield scrapy.Request(url=page_href, callback=self.detail_parse, meta={"scrapyProjectListId": scrapyProjectList.id})
+            #     # 关闭数据库
+            #     scrapy_db.close()
+            #     print('start_time:' + '关闭数据库')
+            #     time.sleep(30)
 
             # 踩一条数据
-            # scrapyProjectList = ScrapyProjectListModel().get_by_id(40)
-            # page_href = scrapyProjectList.page_href
-            # print('page_href:' + page_href)
-            # yield scrapy.Request(url=page_href, callback=self.detail_parse,
-            #                      meta={"scrapyProjectListId": scrapyProjectList.id})
-            # # 关闭数据库
-            # scrapy_db.close()
+            scrapyProjectList = ScrapyProjectListModel().get_by_id(143)
+            page_href = scrapyProjectList.page_href
+            print('page_href:' + page_href)
+            yield scrapy.Request(url=page_href, callback=self.detail_parse,
+                                 meta={"scrapyProjectListId": scrapyProjectList.id})
+            # 关闭数据库
+            scrapy_db.close()
         if model == 2:
             print('retry_requests:' + 'retry_requests')
             print("wired")
@@ -105,12 +105,30 @@ class IcobenchDetailSpider(scrapy.Spider):
         self.log('Saved file %s' % filename)
 
         # 宣传语
-        slogan = response.xpath("//*[@id='profile_header']/div/div[1]/div[1]/div[2]/h2/text()").extract()[0].strip()
-        print('slogan:', slogan)
-        # logo
-        logo = root_url + response.xpath("//*[@id='profile_header']/div/div[1]/div[1]/div[1]/img/@src").extract()[
-            0].strip()
+        slogan_div = response.xpath("//*[@id='profile_header']/div")
+        slogan_div_len = int(len(slogan_div))
+        print('slogan_div_len:', slogan_div_len)
+        slogan = ''
+        logo = ''
+        detail_excerpt = ''
+        for slogan_len_num in range(1, slogan_div_len + 1):
+            # // *[ @ id = "profile_header"] / div / div[2]
+            slogan_class = response.xpath("// *[ @ id = 'profile_header'] / div / div[" + str(slogan_len_num) + "]/@class").extract()[0]
+            print('slogan_class:', slogan_class)
+            if slogan_class == 'ico_information':
+                slogan = response.xpath("//*[@id='profile_header']/div/div[" + str(slogan_len_num) + "]/div[1]/div[2]/h2/text()").extract()[0].strip()
+                # logo
+                logo = root_url + \
+                       response.xpath("//*[@id='profile_header']/div/div[" + str(slogan_len_num) + "]/div[1]/div[1]/img/@src").extract()[
+                           0].strip()
+                # 简介
+                detail_excerpt = response.xpath("//*[@id='profile_header']/div/div[" + str(slogan_len_num) + "]/p/text()").extract()[0].strip()
+                print('detail_excerpt:', detail_excerpt)
+                # // *[ @ id = "profile_header"] / div / div[2] / div[1] / div[1]
         print('logo:', logo)
+        print('slogan:', slogan)
+        print('detail_excerpt:', detail_excerpt)
+
         # 官网
         # homepage = response.xpath("//*[@id='profile_header']/div/div[2]/div[5]/a[8]/@href").extract()[0].strip()
         # # // *[ @ id = "profile_header"] / div / div[2] / div[5]
@@ -121,8 +139,14 @@ class IcobenchDetailSpider(scrapy.Spider):
         # 计算白皮书div下有多少个a标签
         white_paper_div_len = int(len(white_paper_div))
         print('white_paper_div_len:', white_paper_div_len)
-        white_paper = root_url + response.xpath(
-            "//*[@id='profile_content']/div/div[1]/div[2]/div/a[" + str(white_paper_div_len) + "]/@href").extract()[0]
+        white_paper = ''
+        detail_desc = ''
+        if white_paper_div_len != 0:
+            white_paper = root_url + response.xpath(
+                "//*[@id='profile_content']/div/div[1]/div[2]/div/a[" + str(white_paper_div_len) + "]/@href").extract()[0]
+            # 详细介绍
+            detail_desc = response.xpath("//*[@id='about']").extract()[0].strip()
+        print('detail_desc:', detail_desc)
         print('white_paper:', white_paper)
         # 视频链接
         video = ''
@@ -142,12 +166,12 @@ class IcobenchDetailSpider(scrapy.Spider):
             industry = industry + response.xpath("// *[ @ id = 'profile_header'] / div / div[1] / div[2] / a[" + str(
                 industry_len_num) + "]/text()").extract()[0] + ','
         print('industry:', industry)
-        # 简介
-        detail_excerpt = response.xpath("//*[@id='profile_header']/div/div[1]/p/text()").extract()[0].strip()
-        print('detail_excerpt:', detail_excerpt)
-        # 详细介绍
-        detail_desc = response.xpath("//*[@id='about']").extract()[0].strip()
-        print('detail_desc:', detail_desc)
+        # # 简介
+        # detail_excerpt = response.xpath("//*[@id='profile_header']/div/div[1]/p/text()").extract()[0].strip()
+        # print('detail_excerpt:', detail_excerpt)
+        # # 详细介绍
+        # detail_desc = response.xpath("//*[@id='about']").extract()[0].strip()
+        # print('detail_desc:', detail_desc)
         # 软顶
         # 抓(Investment info)div
         ico_investment_info_div = response.xpath("//*[@id='financial']/div/div[2]/div")
