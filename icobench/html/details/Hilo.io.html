@@ -41,7 +41,7 @@
 						<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 						<meta name="theme-color" content="#ffffff">
 						<link title="ICObench" type="application/opensearchdescription+xml" rel="search" href="https://icobench.com/opensearch.xml">
-						<link href="/css/style.css?v=1553180446" id="css" rel="stylesheet" type="text/css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+						<link href="/css/style.css?v=1553270114" id="css" rel="stylesheet" type="text/css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script><script>
 										  !function(f,b,e,v,n,t,s)
@@ -90,15 +90,16 @@
 
                                     <nav id="top_menu" class="notranslate">
 										<div class="nodesktop-show" id="conner-mobile"></div>
-                                        <div id="header-tron" target="_blank" onclick="ga('send', 'event', 'Menu', 'Tron Logo');"><img src="/images/tron_logo.png" style="width:80px;height:30px;border:0px solid white;margin:2px 20px 2px 0px;"></div>
-										<a href="/icos?nofilter&utm_source=header" title="Browse ICOs" class="link">ICOs</a>
-										<a href="/icos?filterTokenClass=security&nofilter&utm_source=sto_header" title="Browse STOs" class="link">STOs</a>
-										<a href="/premium?utm_source=header" title="Premium listing" class="link link-premium">Premium</a>
-                                        <a href="/thebench?utm_source=header" title="Blogs" class="link">Blogs</a>
-                                        <a href="/press-releases?utm_source=header" title="Press Releases" class="link">Press Releases</a>
-                                        <a href="/pro?utm_source=header" title="PRO" class="link linkWhiteBorder">PRO</a>
-                                        <a href="/register?utm_source=header" title="Sign up" class="link">Sign up</a>
-										<a href="/login?utm_source=header" title="Login" class="link">Login</a>
+                                        <div id="header-tron" target="_blank" onclick="ga('send', 'event', 'Menu', 'Tron Logo');"><img src="/images/tron_logo.png" style="width:53px;height:20px;border:0px solid white;margin:7px 20px 2px 0px;"></div>
+                                        <a href="/icos?nofilter" title="ICO - Initial Coin Offering" class="link">ICO</a>
+                                        <a href="/ieo" title="IEO - Initial Exchange Offering" class="link linkBlueBack">IEO</a>
+                                        <a href="/icos?filterTokenClass=security&nofilter" title="STO - Security Token Offering" class="link">STO</a>
+                                        <a href="/premium" title="Premium listing" class="link link-premium">Premium</a>
+                                        <a href="/report" title="ICO Market Reports" class="link">Reports</a>
+                                        <a href="/thebench" title="Blogs abount ICO, STO, IEO" class="link">Blogs</a>
+                                        <a href="/pro" title="PRO" class="link linkWhiteBorder">PRO</a>
+                                        <a href="/register" title="Sign up" class="link">Sign up</a>
+										<a href="/login" title="Login" class="link">Login</a>
                                      </nav>
                                      
 <div id="tron_dropdown">
@@ -297,6 +298,38 @@
                     <div class="socials"><a onclick="ga('send', 'event', 'ICOprofile', 'Twitter', 'Hilo.io');" rel="nofollow" href="https://twitter.com/HiloCrypto" target="_blank" title="Hilo.io on Twitter" class="twitter">Twitter</a><a onclick="ga('send', 'event', 'ICOprofile', 'Facebook', 'Hilo.io');" rel="nofollow" href="https://www.facebook.com/HiloCrypto/" target="_blank" title="Hilo.io on Facebook" class="facebook">Facebook</a><a onclick="ga('send', 'event', 'ICOprofile', 'Telegram', 'Hilo.io');" rel="nofollow" href="https://t.me/HiloCrypto" target="_blank" title="Hilo.io on Telegram" class="telegram">Telegram</a><a onclick="ga('send', 'event', 'ICOprofile', 'Www', 'Hilo.io');" rel="nofollow" href="https://www.hilo.io/?utm_source=icobench" target="_blank" title="Hilo.io website" class="www">WWW</a><span data-badge-top="Hilo.io does not have a Bitcoin Wiki page yet" class="bitcoinwiki-no"></span></div>			  <a href="/contact?report=hilo-io" class="button_report" title="Report this ICO">Report</a>
 			</div>
 		</div></div>	
+
+
+<style>
+#icomid{background:#e4e4e4;border-bottom:1px solid #dbdbdb;padding-top:10px;text-align:center; background:url("/images/ieo-back.png")}
+#icomid .frame{position:relative;}
+#icomid span{font-size:30px;font-weight:500;font-family:'Montserrat',sans-serif;color:#fff;text-align:center;margin:5px;padding:0;line-height:2.3;}
+#icomid a{color:#fff;text-decoration: none;}
+#icomid a:hover{color:#fff;text-decoration: underline;}
+
+.stage{
+    width: 150px;
+    height: 90px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 150px 90px;
+    display: inline-block;
+    vertical-align: middle;
+    background-image:url('/images/ieo-stage.svg');
+}
+
+</style>
+
+
+<div id="icomid">
+<div class="frame">
+
+<i class="stage"></i>
+<span><a href="/ieo">We launched IEO listing</a></span>
+</div>
+</div>
+
+
 		<div id="profile_content">
 			<div class="frame">
 				<div class="content">
@@ -375,7 +408,7 @@
 											<div style="display:none;" class="tab_content" id="team">
 							<h2>Team</h2>
 							<a href="/contact?advisor=hilo-io" class="button_apply notranslate">Apply as an advisor</a>
-							<div class="row"><div class="col_3"><a href="/u/monica+puchner" title="Monica Puchner" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74640.jpg');"></div></a><h3 class="notranslate">Monica Puchner</h3><h4 class="notranslate">CEO & Founder</h4><div class="socials"><a href="https://www.linkedin.com/in/monicapuchner/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div><div class="country"><span class="flag blogger_badge_profile" data-badge-top="USA" style="background-image:url('/images/flags/us.svg')"></span></div></div><div class="col_3"><a href="/u/robby+black" title="Robby Black" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74641.jpg');"></div></a><h3 class="notranslate">Robby Black</h3><h4 class="notranslate">CTO</h4><div class="socials"><a href="https://www.linkedin.com/in/georgeblackjr/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div><div class="country"><span class="flag blogger_badge_profile" data-badge-top="USA" style="background-image:url('/images/flags/us.svg')"></span></div></div><div class="col_3"><a href="/u/vadim+fedotov" title="Vadim Fedotov" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74642.jpg');"></div></a><h3 class="notranslate">Vadim Fedotov</h3><h4 class="notranslate">CPO</h4><div class="socials"><a href="https://www.linkedin.com/in/vadimfedotov/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div><div class="country"><span class="flag blogger_badge_profile" data-badge-top="USA" style="background-image:url('/images/flags/us.svg')"></span></div></div><div class="col_3"><a href="/u/nicholas+donahue" title="Nicholas Donahue" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74643.jpg');"></div></a><h3 class="notranslate">Nicholas Donahue</h3><h4 class="notranslate">Community</h4><div class="socials"><a href="https://www.linkedin.com/in/nicholas-donahue-0b77b7128/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div><div class="country"><span class="flag blogger_badge_profile" data-badge-top="USA" style="background-image:url('/images/flags/us.svg')"></span></div></div><div class="col_3"><a href="/u/ramiro+cardozo" title="Ramiro Cardozo" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74644.jpg');"></div></a><h3 class="notranslate">Ramiro Cardozo</h3><h4 class="notranslate">Design</h4><div class="socials"><a href="https://www.linkedin.com/in/ramiro-cardozo/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div><div class="country"><span class="flag blogger_badge_profile" data-badge-top="USA" style="background-image:url('/images/flags/us.svg')"></span></div></div><div class="col_3"><a href="/u/danny+dalton" title="Danny Dalton" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74645.jpg');"></div></a><h3 class="notranslate">Danny Dalton</h3><h4 class="notranslate">Engineering</h4><div class="socials"><a href="https://www.linkedin.com/in/dannyrdalton/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div><div class="country"><span class="flag blogger_badge_profile" data-badge-top="USA" style="background-image:url('/images/flags/us.svg')"></span></div></div><div class="col_3"><a href="/u/tyler+law" title="Tyler Law" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74646.jpg');"></div></a><h3 class="notranslate">Tyler Law</h3><h4 class="notranslate">Engineering</h4><div class="socials"><a href="https://www.linkedin.com/in/tylerjlaw/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div><div class="country"><span class="flag blogger_badge_profile" data-badge-top="USA" style="background-image:url('/images/flags/us.svg')"></span></div></div></div><h3 class="notranslate">Advisors</h3><div class="row"><div class="col_3"><a href="/u/steve+waterhouse" title="Steve Waterhouse" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74647.jpg');"></div></a><h3 class="notranslate">Steve Waterhouse</h3><h4 class="notranslate">CEO @ Orchid Former Partner @Pantera</h4></div><div class="col_3"><a href="/u/vinny+lingham" title="Vinny Lingham" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 6"></div><div class="image_background" style="background-image:url('/images/icos/team/6000-74648.jpg');"></div></a><h3 class="notranslate">Vinny Lingham</h3><h4 class="notranslate">Founder & CEO @Civic</h4></div><div class="col_3"><a href="/u/sean+hoge" title="Sean Hoge" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74649.jpg');"></div></a><h3 class="notranslate">Sean Hoge</h3><h4 class="notranslate">Founder @Venture Coin</h4></div><div class="col_3"><a href="/u/angelo+adam" title="Angelo Adam" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74650.jpg');"></div></a><h3 class="notranslate">Angelo Adam</h3><h4 class="notranslate">CEO @Bounty0x</h4></div><div class="col_3"><a href="/u/ben+n.t.le" title="Ben N.T.Le" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74651.jpg');"></div></a><h3 class="notranslate">Ben N.T.Le</h3><h4 class="notranslate">Angel Investor @Metal</h4></div><div class="col_3"><a href="/u/ed+colligan" title="Ed Colligan" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74652.jpg');"></div></a><h3 class="notranslate">Ed Colligan</h3><h4 class="notranslate">Investor at Edventures Former CEO @Palm</h4></div><div class="col_3"><a href="/u/emanuele+cesena" title="Emanuele Cesena" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74653.jpg');"></div></a><h3 class="notranslate">Emanuele Cesena</h3><h4 class="notranslate">Security @Pinterest Co-founder @Theneeds (sold to Shopkick)</h4></div><div class="col_3"><a href="/u/bud+colligan" title="Bud Colligan" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74654.jpg');"></div></a><h3 class="notranslate">Bud Colligan</h3><h4 class="notranslate">CEO @Macromedia Former Partner @Accel</h4></div><div class="col_3"><a href="/u/deniz+dalkilic" title="Deniz Dalkilic" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74655.jpg');"></div></a><h3 class="notranslate">Deniz Dalkilic</h3><h4 class="notranslate">CTO @Bounty0x</h4></div><div class="col_3"><a href="/u/jason+riback" title="Jason Riback" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74656.jpg');"></div></a><h3 class="notranslate">Jason Riback</h3><h4 class="notranslate">President @MediaMint Former @McKinsey</h4></div></div>                        </div>
+							<div class="row"><div class="col_3"><a href="/u/monica+puchner" title="Monica Puchner" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74640.jpg');"></div></a><h3 class="notranslate">Monica Puchner</h3><h4 class="notranslate">CEO & Founder</h4><div class="socials"><a href="https://www.linkedin.com/in/monicapuchner/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div><div class="country"><span class="flag blogger_badge_profile" data-badge-top="USA" style="background-image:url('/images/flags/us.svg')"></span></div></div><div class="col_3"><a href="/u/robby+black" title="Robby Black" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74641.jpg');"></div></a><h3 class="notranslate">Robby Black</h3><h4 class="notranslate">CTO</h4><div class="socials"><a href="https://www.linkedin.com/in/georgeblackjr/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div><div class="country"><span class="flag blogger_badge_profile" data-badge-top="USA" style="background-image:url('/images/flags/us.svg')"></span></div></div><div class="col_3"><a href="/u/vadim+fedotov" title="Vadim Fedotov" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74642.jpg');"></div></a><h3 class="notranslate">Vadim Fedotov</h3><h4 class="notranslate">CPO</h4><div class="socials"><a href="https://www.linkedin.com/in/vadimfedotov/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div><div class="country"><span class="flag blogger_badge_profile" data-badge-top="USA" style="background-image:url('/images/flags/us.svg')"></span></div></div><div class="col_3"><a href="/u/nicholas+donahue" title="Nicholas Donahue" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74643.jpg');"></div></a><h3 class="notranslate">Nicholas Donahue</h3><h4 class="notranslate">Community</h4><div class="socials"><a href="https://www.linkedin.com/in/nicholas-donahue-0b77b7128/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div><div class="country"><span class="flag blogger_badge_profile" data-badge-top="USA" style="background-image:url('/images/flags/us.svg')"></span></div></div><div class="col_3"><a href="/u/ramiro+cardozo" title="Ramiro Cardozo" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74644.jpg');"></div></a><h3 class="notranslate">Ramiro Cardozo</h3><h4 class="notranslate">Design</h4><div class="socials"><a href="https://www.linkedin.com/in/ramiro-cardozo/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div><div class="country"><span class="flag blogger_badge_profile" data-badge-top="USA" style="background-image:url('/images/flags/us.svg')"></span></div></div><div class="col_3"><a href="/u/danny+dalton" title="Danny Dalton" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74645.jpg');"></div></a><h3 class="notranslate">Danny Dalton</h3><h4 class="notranslate">Engineering</h4><div class="socials"><a href="https://www.linkedin.com/in/dannyrdalton/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div><div class="country"><span class="flag blogger_badge_profile" data-badge-top="USA" style="background-image:url('/images/flags/us.svg')"></span></div></div><div class="col_3"><a href="/u/tyler+law" title="Tyler Law" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74646.jpg');"></div></a><h3 class="notranslate">Tyler Law</h3><h4 class="notranslate">Engineering</h4><div class="socials"><a href="https://www.linkedin.com/in/tylerjlaw/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div><div class="country"><span class="flag blogger_badge_profile" data-badge-top="USA" style="background-image:url('/images/flags/us.svg')"></span></div></div></div><h3 class="notranslate">Advisors</h3><div class="row"><div class="col_3"><a href="/u/steve+waterhouse" title="Steve Waterhouse" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74647.jpg');"></div></a><h3 class="notranslate">Steve Waterhouse</h3><h4 class="notranslate">CEO @ Orchid Former Partner @Pantera</h4></div><div class="col_3"><a href="/u/vinny+lingham" title="Vinny Lingham" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 7"></div><div class="image_background" style="background-image:url('/images/icos/team/6000-74648.jpg');"></div></a><h3 class="notranslate">Vinny Lingham</h3><h4 class="notranslate">Founder & CEO @Civic</h4></div><div class="col_3"><a href="/u/sean+hoge" title="Sean Hoge" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74649.jpg');"></div></a><h3 class="notranslate">Sean Hoge</h3><h4 class="notranslate">Founder @Venture Coin</h4></div><div class="col_3"><a href="/u/angelo+adam" title="Angelo Adam" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74650.jpg');"></div></a><h3 class="notranslate">Angelo Adam</h3><h4 class="notranslate">CEO @Bounty0x</h4></div><div class="col_3"><a href="/u/ben+n.t.le" title="Ben N.T.Le" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74651.jpg');"></div></a><h3 class="notranslate">Ben N.T.Le</h3><h4 class="notranslate">Angel Investor @Metal</h4></div><div class="col_3"><a href="/u/ed+colligan" title="Ed Colligan" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74652.jpg');"></div></a><h3 class="notranslate">Ed Colligan</h3><h4 class="notranslate">Investor at Edventures Former CEO @Palm</h4></div><div class="col_3"><a href="/u/emanuele+cesena" title="Emanuele Cesena" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74653.jpg');"></div></a><h3 class="notranslate">Emanuele Cesena</h3><h4 class="notranslate">Security @Pinterest Co-founder @Theneeds (sold to Shopkick)</h4></div><div class="col_3"><a href="/u/bud+colligan" title="Bud Colligan" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74654.jpg');"></div></a><h3 class="notranslate">Bud Colligan</h3><h4 class="notranslate">CEO @Macromedia Former Partner @Accel</h4></div><div class="col_3"><a href="/u/deniz+dalkilic" title="Deniz Dalkilic" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74655.jpg');"></div></a><h3 class="notranslate">Deniz Dalkilic</h3><h4 class="notranslate">CTO @Bounty0x</h4></div><div class="col_3"><a href="/u/jason+riback" title="Jason Riback" class="image"><div class="image_background" style="background-image:url('/images/icos/team/6000-74656.jpg');"></div></a><h3 class="notranslate">Jason Riback</h3><h4 class="notranslate">President @MediaMint Former @McKinsey</h4></div></div>                        </div>
                                                                 <div style="display:none;" class="tab_content" id="financial">
                             <h2>Financial</h2>
                                                         <div class="box">
@@ -428,39 +461,39 @@
                         <h4>ICOs that might interest you</h4>
                         <div class="row">
                             <div class="col_4">
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/migranet" class="image" style="background-image:url('/images/icos/logos/migranet.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">4.1</span></div></a>
+										<div class="content">
+											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/migranet"><h3 class="notranslate">Migranet</h3></a>
+											<p>The world’s first Immigration Platform combining artificial intelligence, cryptocurre...</p>
+											<div class="bottom">
+												<div class="time"><div class="icon"></div>141 days 11 hours left</div>
+											</div>
+										</div>
+									</div><div class="col_4">
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/livenpay" class="image" style="background-image:url('/images/icos/logos/livenpay.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">4.4</span></div></a>
+										<div class="content">
+											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/livenpay"><h3 class="notranslate">LivenPay</h3></a>
+											<p>Liven is an incentive-based mobile payments gateway and ecosystem built for the lifesty...</p>
+											<div class="bottom">
+												<div class="time"><div class="icon"></div>29 days 11 hours left</div>
+											</div>
+										</div>
+									</div><div class="col_4">
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/dexon" class="image" style="background-image:url('/images/icos/logos/dexon.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">4.0</span></div></a>
+										<div class="content">
+											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/dexon"><h3 class="notranslate">DEXON</h3></a>
+											<p>DEXON is a distributed ledger technology designed to solve the problems inherent in oth...</p>
+											<div class="bottom">
+												<div class="time"><div class="icon"></div>Starts in 11 hours</div>
+											</div>
+										</div>
+									</div><div class="col_4">
 										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/volentix" class="image" style="background-image:url('/images/icos/logos/volentix.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">4.3</span></div></a>
 										<div class="content">
 											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/volentix"><h3 class="notranslate">Volentix</h3></a>
 											<p>Volentix is building a decentralized digital assets exchange connected with a secure mu...</p>
 											<div class="bottom">
-												<div class="time"><div class="icon"></div>40 days 22 hours left</div>
-											</div>
-										</div>
-									</div><div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/livenpay" class="image" style="background-image:url('/images/icos/logos/livenpay.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">4.2</span></div></a>
-										<div class="content">
-											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/livenpay"><h3 class="notranslate">LivenPay</h3></a>
-											<p>Liven is an incentive-based mobile payments gateway and ecosystem built for the lifesty...</p>
-											<div class="bottom">
-												<div class="time"><div class="icon"></div>33 days 22 hours left</div>
-											</div>
-										</div>
-									</div><div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/faireum" class="image" style="background-image:url('/images/icos/logos/faireum.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color5">4.6</span></div></a>
-										<div class="content">
-											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/faireum"><h3 class="notranslate">Faireum</h3></a>
-											<p>A Fair Gambling Blockchain Network for All Faireum is a public blockchain which focuses...</p>
-											<div class="bottom">
-												<div class="time">Starts in 2 days 22 hours</div>
-											</div>
-										</div>
-									</div><div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/coincasso" class="image" style="background-image:url('/images/icos/logos/coincasso.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">3.5</span></div></a>
-										<div class="content">
-											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/coincasso"><h3 class="notranslate">CoinCasso</h3></a>
-											<p>European Licensed Hybrid Cryptocurrency Exchange.</p>
-											<div class="bottom">
-												<div class="time"><div class="icon"></div>283 days 22 hours left</div>
+												<div class="time"><div class="icon"></div>36 days 11 hours left</div>
 											</div>
 										</div>
 									</div>                        </div>
@@ -561,7 +594,7 @@
 </div>
 
 <div class="col_5 notranslate">
-<h4>For ICOs</h4>
+<h4>For Projects</h4>
 <ul>
 <li><a onclick="ga('send', 'event', 'Footer', 'premium');" href="/premium" title="Premium listing">Premium listing</a></li>
 <li><a onclick="ga('send', 'event', 'Footer', 'publish');" href="/publish" title="Publish new ICO">Publish new ICO</a></li>
@@ -575,6 +608,7 @@
 <h4>For all</h4>
 <ul>
 <li><a onclick="ga('send', 'event', 'Footer', 'icos');" href="/icos" title="ICO listing">ICO listing</a></li>
+<li><a onclick="ga('send', 'event', 'Footer', 'ieo');" href="/ieo" title="IEO listing">IEO listing</a></li>
 <li><a onclick="ga('send', 'event', 'Footer', 'stos');" href="/icos?filterTokenClass=security&nofilter&utm_source=sto_footer" title="STO listing">STO listing</a></li>
 
 <li><a onclick="ga('send', 'event', 'Footer', 'thebench');" href="/thebench" title="Blogs">Blogs</a></li>
@@ -590,7 +624,7 @@
 </div>
 
 <div class="col_5 notranslate">
-<h4>Network</h4>
+<h4>Social</h4>
 <ul>
 <li><a onclick="ga('send', 'event', 'Footer', 'twitter');" href="https://www.twitter.com/ICObench" title="ICObench on Twitter" target="_blank">Twitter</a></li>
 <li><a onclick="ga('send', 'event', 'Footer', 'facebook');" href="https://www.facebook.com/ICObench" title="ICObench on Facebook" target="_blank">Facebook</a></li>
@@ -678,7 +712,7 @@
                             </script>
                             <noscript><div><img src="https://mc.yandex.ru/watch/50041027" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
                             <!-- /Yandex.Metrika counter -->
-            <div class="fixedShow notranslate "><a target="_blank" onclick="ga('send', 'event', 'StickyFooter', 'telegram_channel_20190307')" href="https://t.me/icobench"><i class="fixedShowImage" style="background-image:url('/images/sps/uploaded/63545bd20a073ec170aa5644de6d9c33.png')"></i><span class="desktop">Join Telegram (7K)</span><span class="mobile">Join Telegram (7K)</span></a><span class="close" data-show-id="42" title="close"></span></div><div class="sticky_footer_height"></div><script src="/js/js.js?14"></script></body></html><style>
+            <div class="fixedShow notranslate "><a onclick="ga('send', 'event', 'StickyFooter', 'ieo20190322')" href="https://bit.ly/2YhJI8X"><i class="fixedShowImage" style="background-image:url('/images/sps/uploaded/a44e97ef6c18750e23abc72d4352faa9.svg')"></i><span class="desktop">IEO – Initial Exchange Offering</span><span class="mobile">List IEO projects</span></a><span class="close" data-show-id="43" title="close"></span></div><div class="sticky_footer_height"></div><script src="/js/js.js?14"></script></body></html><style>
 				#cookiebox {position: fixed; right: 10px; bottom: 100px; z-index:100 }
 				#cookiebox .container {font-family: "Open Sans",sans-serif;font-size: 14px;width:400px;background-color:#5a67b9;padding:10px 20px;border-radius:20px;color:white;}
 				#cookiebox .container p{}

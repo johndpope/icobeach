@@ -41,7 +41,7 @@
 						<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 						<meta name="theme-color" content="#ffffff">
 						<link title="ICObench" type="application/opensearchdescription+xml" rel="search" href="https://icobench.com/opensearch.xml">
-						<link href="/css/style.css?v=1553248645" id="css" rel="stylesheet" type="text/css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+						<link href="/css/style.css?v=1553614921" id="css" rel="stylesheet" type="text/css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script><script>
 										  !function(f,b,e,v,n,t,s)
@@ -90,12 +90,12 @@
 
                                     <nav id="top_menu" class="notranslate">
 										<div class="nodesktop-show" id="conner-mobile"></div>
-                                        <div id="header-tron" target="_blank" onclick="ga('send', 'event', 'Menu', 'Tron Logo');"><img src="/images/tron_logo.png" style="width:80px;height:30px;border:0px solid white;margin:2px 20px 2px 0px;"></div>
+                                        <div id="header-tron" target="_blank" onclick="ga('send', 'event', 'Menu', 'Tron Logo');"><img src="/images/tron_logo.png" style="width:53px;height:20px;border:0px solid white;margin:7px 20px 2px 0px;"></div>
                                         <a href="/icos?nofilter" title="ICO - Initial Coin Offering" class="link">ICO</a>
                                         <a href="/ieo" title="IEO - Initial Exchange Offering" class="link linkBlueBack">IEO</a>
-                                        <a href="/icos?filterTokenClass=security&nofilter" title="STO - Security Token Offering" class="link">STO</a>
+                                        <a href="/icos?filterTokenClass=security&nofilter" title="STO - Security Token Offering" class="link linkBlue2Back">STO</a>
                                         <a href="/premium" title="Premium listing" class="link link-premium">Premium</a>
-                                        <a href="/thebench" title="ICO Market Reports" class="link">Reports</a>
+                                        <a href="/report" title="ICO Market Reports" class="link">Reports</a>
                                         <a href="/thebench" title="Blogs abount ICO, STO, IEO" class="link">Blogs</a>
                                         <a href="/pro" title="PRO" class="link linkWhiteBorder">PRO</a>
                                         <a href="/register" title="Sign up" class="link">Sign up</a>
@@ -260,17 +260,124 @@
                         
                     <div class="ico-profile-hitbtc"><a href="https://hitbtc.com/?ref_id=5c11455aa5c47" target="_blank"><img src="/images/hiter_bench.svg"></a></div>                    
                     <div class="financial_data">
-                        <div class="row">
-									<div class="col_2">
-										<label>Status</label>
-										<div class="number">Ended</div>
-									</div>
-								</div>
-								<div class="divider"></div><div class="data_row">
+                        <div class="row row_trading">
+										<div class="col_2">
+											<label>Status</label>
+											<div class="number">Trading</div>
+										</div>
+										<div class="col_2">
+											<label>1 ETHD =</label>
+											<div class="number">0.02 USD</div>
+										</div>
+									</div>                            <script src="/js/Chart.bundle.js"></script>
+                            <script src="/js/utils.js"></script>
+                            <style>
+                                canvas{
+                                    -moz-user-select: none;
+                                    -webkit-user-select: none;
+                                    -ms-user-select: none;
+                                }
+                            </style>
+                            <div class="graph_box">
+                                                                <div id="graph">
+                                    <canvas id="myChart" width="300" height="170"></canvas>
+                                    <script>
+
+                                        var ctx = document.getElementById('myChart').getContext("2d");
+                                        var gradientStroke = ctx.createLinearGradient(0,0,0,170);
+                                        gradientStroke.addColorStop(0, "#a2cbff");
+                                        gradientStroke.addColorStop(1, "#4955ad");
+
+                                        var originalLineDraw = Chart.controllers.line.prototype.draw;
+                                        Chart.helpers.extend(Chart.controllers.line.prototype, {
+                                            draw: function() {
+                                                originalLineDraw.apply(this, arguments);
+
+                                                var chart = this.chart;
+                                                var ctx = chart.chart.ctx;
+
+                                                var index = chart.config.data.lineAtIndex;
+                                                if (index) {
+                                                    var xaxis = chart.scales['x-axis-1'];
+                                                    var yaxis = chart.scales['y-axis-1'];
+
+                                                    ctx.save();
+                                                    ctx.beginPath();
+                                                    ctx.moveTo(xaxis.getPixelForValue(undefined, index), yaxis.top);
+                                                    ctx.strokeStyle = '#e1e1e1';
+                                                    ctx.lineWidth = 3;
+                                                    ctx.lineTo(xaxis.getPixelForValue(undefined, index), yaxis.bottom);
+                                                    ctx.stroke();
+                                                    ctx.restore();
+                                                }
+                                            }
+                                        });
+
+                                        var myChart = new Chart(ctx, {
+                                            type: 'line',
+                                            data: {
+                                                labels:["2019-03-27","2019-03-27"],
+                                                datasets: [{
+                                                    label: "Data",
+                                                    borderColor: gradientStroke,
+                                                    pointRadius: 0,
+                                                    pointBackgroundColors: gradientStroke,
+                                                    fill: false,
+                                                    borderWidth: 6,
+                                                    data: [0.02,0.02],
+                                                }],
+                                                lineAtIndex: 1                                            },
+                                            options: {
+                                                legend: {
+                                                    display: false
+                                                },
+                                                tooltips: {
+                                                    enabled: true
+                                                },
+                                                scales: {
+                                                    yAxes: [{
+                                                        id: 'y-axis-1',
+                                                        type: 'linear',
+                                                        position: 'left',
+                                                        gridLines: {
+                                                            tickMarkLength: 1,
+                                                            color: '#e1e1e1',
+                                                            zeroLineColor: '#e1e1e1'
+                                                        },
+                                                        ticks: {
+                                                            stepSize: 0.25,
+                                                            fontSize: 11,
+                                                            fontColor: '#aaaaaa',
+                                                            padding: 5,
+                                                            display: true
+                                                        }
+                                                    }
+                                                    ],
+                                                    xAxes: [{
+                                                        id: 'x-axis-1',
+                                                        ticks: {
+                                                            display: false,
+                                                        },
+                                                        gridLines: {
+                                                            tickMarkLength: 1,
+                                                            color: '#ffffff',
+                                                            zeroLineColor: '#e1e1e1'
+                                                        }
+                                                    }]
+                                                }
+                                            }
+                                        });
+
+
+                                    </script>
+                                </div>
+                                <small>From <a href="/exchange/cryptopia" title="ETHD on Cryptopia exchange">Cryptopia</a> on 2019-03-27 10:21:06 UTC</small>
+                            </div>
+                        <div class="divider"></div><div class="data_row">
 									<div class="col_2">
 										Token
 									</div>
-									<div class="col_2"><b>ETHD</b></div>
+									<div class="col_2"><b><a href="/exchanges?s=ETHD" title="ETHD on exchanges">ETHD</a></b></div>
 								</div><div class="data_row">
 									<div class="col_2">Type</div>
 									<div class="col_2">
@@ -323,6 +430,38 @@
                     <div class="socials"><a onclick="ga('send', 'event', 'ICOprofile', 'Slack', 'ETH Lottery');" rel="nofollow" href="https://join.slack.com/t/ethlotteryico/shared_invite/enQtMjUwMzgxOTcwMDIzLTZmYTlmZThkMGUzMGNlYzhmMDAzNDNlYTUxNzZkZmE1MDFlYTA4MzFmNmI0M2IxZWJhYmFiMmNhZGU2OGZjNmI" target="_blank" title="ETH Lottery on Slack" class="slack">Slack</a><a onclick="ga('send', 'event', 'ICOprofile', 'Twitter', 'ETH Lottery');" rel="nofollow" href="https://twitter.com/ETHLottery_co/" target="_blank" title="ETH Lottery on Twitter" class="twitter">Twitter</a><a onclick="ga('send', 'event', 'ICOprofile', 'Bitcointalk', 'ETH Lottery');" rel="nofollow" href="https://bitcointalk.org/index.php?topic=2220944.0" target="_blank" title="ETH Lottery on BitcoinTalk" class="bitcointalk">BitcoinTalk</a><a onclick="ga('send', 'event', 'ICOprofile', 'Medium', 'ETH Lottery');" rel="nofollow" href="https://medium.com/@ETHLottery_co" target="_blank" title="ETH Lottery on Medium" class="medium">Medium</a><a onclick="ga('send', 'event', 'ICOprofile', 'Telegram', 'ETH Lottery');" rel="nofollow" href="https://t.me/ETHLottery" target="_blank" title="ETH Lottery on Telegram" class="telegram">Telegram</a><a onclick="ga('send', 'event', 'ICOprofile', 'Www', 'ETH Lottery');" rel="nofollow" href="http://www.ethlottery.co/?utm_source=icobench" target="_blank" title="ETH Lottery website" class="www">WWW</a><span data-badge-top="ETH Lottery does not have a Bitcoin Wiki page yet" class="bitcoinwiki-no"></span></div>			  <a href="/contact?report=eth-lottery" class="button_report" title="Report this ICO">Report</a>
 			</div>
 		</div></div>	
+
+
+<style>
+#icomid{background:#e4e4e4;border-bottom:1px solid #dbdbdb;padding-top:10px;text-align:center; background:url("/images/ieo-back.png")}
+#icomid .frame{position:relative;}
+#icomid span{font-size:30px;font-weight:500;font-family:'Montserrat',sans-serif;color:#fff;text-align:center;margin:5px;padding:0;line-height:2.3;}
+#icomid a{color:#fff;text-decoration: none;}
+#icomid a:hover{color:#fff;text-decoration: underline;}
+
+.stage{
+    width: 150px;
+    height: 90px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 150px 90px;
+    display: inline-block;
+    vertical-align: middle;
+    background-image:url('/images/ieo-stage.svg');
+}
+
+</style>
+
+
+<div id="icomid">
+<div class="frame">
+
+<i class="stage"></i>
+<span><a href="/ieo">We launched IEO listing</a></span>
+</div>
+</div>
+
+
 		<div id="profile_content">
 			<div class="frame">
 				<div class="content">
@@ -410,7 +549,7 @@
                                                         <div class="box">
                                 <div class="box_left">
                                     <h3>Token info</h3>
-                                    <div class="divider"></div><div class="row">	<div class="label notranslate">Token</div>	<div class="value notranslate">ETHD</div></div><div class="row">	<div class="label">Platform</div>	<div class="value notranslate">Ethereum</div></div><div class="row">	<div class="label">Type</div>	<div class="value">ERC20</div></div><div class="divider"></div><div class="row">	<div class="label">Price in ICO</div>	<div class="value">0.2163 USD</div></div><div class="row">	<div class="divider"></div>	<h4>Bonus</h4>	<div class="bonus_text"><table>
+                                    <div class="divider"></div><div class="row">	<div class="label notranslate">Token</div>	<div class="value notranslate">ETHD</div></div><div class="row">	<div class="label">Platform</div>	<div class="value notranslate">Ethereum</div></div><div class="row">	<div class="label">Type</div>	<div class="value">ERC20</div></div><div class="divider"></div><div class="row">	<div class="label">Price in ICO</div>	<div class="value">0.2163 USD</div></div><div class="row">	<div class="label">Average price</div>	<div class="value">0.02 USD</div></div><div class="row">	<div class="label">ROI</div> <div class="roi red">-90.75%</div></div><div class="row">	<div class="divider"></div>	<h4>Bonus</h4>	<div class="bonus_text"><table>
 <tbody>
 <tr>
 <td>Pre-ICO</td>
@@ -458,7 +597,7 @@
                                     <h3>Investment info</h3>
                                     <div class="divider"></div><div class="row">	<div class="label">Accepting</div>	<div class="value">ETH</div></div><div class="row">	<div class="label">Distributed in ICO</div>	<div class="value">70%</div></div><div class="row">	<div class="label">Soft cap</div>	<div class="value">250 ETH</div></div><div class="row">	<div class="label">Hard cap</div>	<div class="value">7,500 ETH</div></div><div class="divider"></div><div class="row">	<div class="label">Raised</div>	<div class="value">Unknown	</div></div>                                </div>
                             </div>
-                            
+                            <div class="clear"></div><h3>Associated Exchanges with ETHD</h3><div class="exchanges_list"><div class="row"><a href="/exchange/cryptopia" class="image" title="ETHD on Cryptopia"><img alt="Cryptopia's logo" src="/images/exchanges/cryptopia.jpg"/></a><div class="text"><a href="/exchange/cryptopia" title="ETHD on Cryptopia" class="title">Cryptopia</a><p>The Cryptopia exchange is a powerful currency trading platform.</p></div><div class="price">0.02 USD</div></div></div>
                         </div>
                                                                 <div style="display:none;" class="tab_content" id="milestones">
                             <h2>Milestones</h2>
@@ -556,7 +695,16 @@
                         <h4>ICOs that might interest you</h4>
                         <div class="row">
                             <div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/futurepia" class="image" style="background-image:url('/images/icos/logos/futurepia.jpg');"><div class="tags"><span class="rate color5">4.6</span></div></a>
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/betinreal" class="image" style="background-image:url('/images/icos/logos/betinreal.jpg');"><div class="tags"><span class="rate color4">4.0</span></div></a>
+										<div class="content">
+											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/betinreal"><h3 class="notranslate">BetInReal</h3></a>
+											<p>BetinReal is the first AR/VR gambling solution in the world, based on blockchain techno...</p>
+											<div class="bottom">
+												<div class="time"><div class="icon"></div>33 days 16 hours left</div>
+											</div>
+										</div>
+									</div><div class="col_4">
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/futurepia" class="image" style="background-image:url('/images/icos/logos/futurepia.jpg');"><div class="tags"><span class="rate color5">4.5</span></div></a>
 										<div class="content">
 											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/futurepia"><h3 class="notranslate">Futurepia</h3></a>
 											<p>Futurepia is a distributed mainnet based on blockchain technology. With 300,000 TPS, it...</p>
@@ -565,21 +713,12 @@
 											</div>
 										</div>
 									</div><div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/betinreal" class="image" style="background-image:url('/images/icos/logos/betinreal.jpg');"><div class="tags"><span class="rate color4">4.1</span></div></a>
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/loteo" class="image" style="background-image:url('/images/icos/logos/loteo.jpg');"><div class="tags"><span class="rate color5">4.6</span></div></a>
 										<div class="content">
-											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/betinreal"><h3 class="notranslate">BetInReal</h3></a>
-											<p>BetinReal is the first AR/VR gambling solution in the world, based on blockchain techno...</p>
+											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/loteo"><h3 class="notranslate">Loteo</h3></a>
+											<p>Loteo is digital automated lottery platform that uses blockchain and smart contracts to...</p>
 											<div class="bottom">
-												<div class="time"><div class="icon"></div>38 days 13 hours left</div>
-											</div>
-										</div>
-									</div><div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/mevu" class="image" style="background-image:url('/images/icos/logos/mevu.jpg');"><div class="tags"><span class="rate color4">4.1</span></div></a>
-										<div class="content">
-											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/mevu"><h3 class="notranslate">MEvU</h3></a>
-											<p>As a peer-to-peer decentralized network, MEVU allows people to bet on anything, anytime...</p>
-											<div class="bottom">
-												
+												<div class="time"><div class="icon"></div>34 days 16 hours left</div>
 											</div>
 										</div>
 									</div><div class="col_4">
@@ -807,7 +946,7 @@
                             </script>
                             <noscript><div><img src="https://mc.yandex.ru/watch/50041027" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
                             <!-- /Yandex.Metrika counter -->
-            <div class="fixedShow notranslate "><a target="_blank" onclick="ga('send', 'event', 'StickyFooter', 'telegram_channel_20190307')" href="https://t.me/icobench"><i class="fixedShowImage" style="background-image:url('/images/sps/uploaded/63545bd20a073ec170aa5644de6d9c33.png')"></i><span class="desktop">Join Telegram (7K)</span><span class="mobile">Join Telegram (7K)</span></a><span class="close" data-show-id="42" title="close"></span></div><div class="sticky_footer_height"></div><script src="/js/js.js?14"></script></body></html><style>
+            <div class="fixedShow notranslate "><a onclick="ga('send', 'event', 'StickyFooter', 'ieo20190322')" href="https://bit.ly/2YhJI8X"><i class="fixedShowImage" style="background-image:url('/images/sps/uploaded/a44e97ef6c18750e23abc72d4352faa9.svg')"></i><span class="desktop">IEO – Initial Exchange Offering</span><span class="mobile">List IEO projects</span></a><span class="close" data-show-id="43" title="close"></span></div><div class="sticky_footer_height"></div><script src="/js/js.js?14"></script></body></html><style>
 				#cookiebox {position: fixed; right: 10px; bottom: 100px; z-index:100 }
 				#cookiebox .container {font-family: "Open Sans",sans-serif;font-size: 14px;width:400px;background-color:#5a67b9;padding:10px 20px;border-radius:20px;color:white;}
 				#cookiebox .container p{}

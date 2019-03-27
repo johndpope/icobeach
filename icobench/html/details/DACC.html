@@ -41,7 +41,7 @@
 						<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 						<meta name="theme-color" content="#ffffff">
 						<link title="ICObench" type="application/opensearchdescription+xml" rel="search" href="https://icobench.com/opensearch.xml">
-						<link href="/css/style.css?v=1553180446" id="css" rel="stylesheet" type="text/css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+						<link href="/css/style.css?v=1553270114" id="css" rel="stylesheet" type="text/css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script><script>
 										  !function(f,b,e,v,n,t,s)
@@ -90,15 +90,16 @@
 
                                     <nav id="top_menu" class="notranslate">
 										<div class="nodesktop-show" id="conner-mobile"></div>
-                                        <div id="header-tron" target="_blank" onclick="ga('send', 'event', 'Menu', 'Tron Logo');"><img src="/images/tron_logo.png" style="width:80px;height:30px;border:0px solid white;margin:2px 20px 2px 0px;"></div>
-										<a href="/icos?nofilter&utm_source=header" title="Browse ICOs" class="link">ICOs</a>
-										<a href="/icos?filterTokenClass=security&nofilter&utm_source=sto_header" title="Browse STOs" class="link">STOs</a>
-										<a href="/premium?utm_source=header" title="Premium listing" class="link link-premium">Premium</a>
-                                        <a href="/thebench?utm_source=header" title="Blogs" class="link">Blogs</a>
-                                        <a href="/press-releases?utm_source=header" title="Press Releases" class="link">Press Releases</a>
-                                        <a href="/pro?utm_source=header" title="PRO" class="link linkWhiteBorder">PRO</a>
-                                        <a href="/register?utm_source=header" title="Sign up" class="link">Sign up</a>
-										<a href="/login?utm_source=header" title="Login" class="link">Login</a>
+                                        <div id="header-tron" target="_blank" onclick="ga('send', 'event', 'Menu', 'Tron Logo');"><img src="/images/tron_logo.png" style="width:53px;height:20px;border:0px solid white;margin:7px 20px 2px 0px;"></div>
+                                        <a href="/icos?nofilter" title="ICO - Initial Coin Offering" class="link">ICO</a>
+                                        <a href="/ieo" title="IEO - Initial Exchange Offering" class="link linkBlueBack">IEO</a>
+                                        <a href="/icos?filterTokenClass=security&nofilter" title="STO - Security Token Offering" class="link">STO</a>
+                                        <a href="/premium" title="Premium listing" class="link link-premium">Premium</a>
+                                        <a href="/report" title="ICO Market Reports" class="link">Reports</a>
+                                        <a href="/thebench" title="Blogs abount ICO, STO, IEO" class="link">Blogs</a>
+                                        <a href="/pro" title="PRO" class="link linkWhiteBorder">PRO</a>
+                                        <a href="/register" title="Sign up" class="link">Sign up</a>
+										<a href="/login" title="Login" class="link">Login</a>
                                      </nav>
                                      
 <div id="tron_dropdown">
@@ -323,7 +324,7 @@
                                         var myChart = new Chart(ctx, {
                                             type: 'line',
                                             data: {
-                                                labels:["2019-01-31","2019-02-01","2019-02-02","2019-02-03","2019-02-04","2019-02-05","2019-02-06","2019-02-07","2019-02-08","2019-02-09","2019-02-10","2019-02-11","2019-02-12","2019-02-13","2019-02-14","2019-02-15","2019-02-16","2019-02-17","2019-02-18","2019-02-19","2019-02-20","2019-02-21","2019-02-22","2019-02-23","2019-02-24","2019-02-25","2019-02-26","2019-02-27","2019-02-28","2019-03-01","2019-03-02","2019-03-03","2019-03-04","2019-03-05","2019-03-06","2019-03-07","2019-03-08","2019-03-09","2019-03-10","2019-03-11","2019-03-12","2019-03-13","2019-03-14","2019-03-15","2019-03-16","2019-03-17","2019-03-18","2019-03-19","2019-03-20","2019-03-21","2019-03-22","2019-03-22"],
+                                                labels:["2019-01-31","2019-02-01","2019-02-02","2019-02-03","2019-02-04","2019-02-05","2019-02-06","2019-02-07","2019-02-08","2019-02-09","2019-02-10","2019-02-11","2019-02-12","2019-02-13","2019-02-14","2019-02-15","2019-02-16","2019-02-17","2019-02-18","2019-02-19","2019-02-20","2019-02-21","2019-02-22","2019-02-23","2019-02-24","2019-02-25","2019-02-26","2019-02-27","2019-02-28","2019-03-01","2019-03-02","2019-03-03","2019-03-04","2019-03-05","2019-03-06","2019-03-07","2019-03-08","2019-03-09","2019-03-10","2019-03-11","2019-03-12","2019-03-13","2019-03-14","2019-03-15","2019-03-16","2019-03-17","2019-03-18","2019-03-19","2019-03-20","2019-03-21","2019-03-22","2019-03-23","2019-03-24","2019-03-25","2019-03-26","2019-03-26"],
                                                 datasets: [{
                                                     label: "Data",
                                                     borderColor: gradientStroke,
@@ -331,9 +332,9 @@
                                                     pointBackgroundColors: gradientStroke,
                                                     fill: false,
                                                     borderWidth: 6,
-                                                    data: [0.17,0.14,0.13,0.12,0.12,0.12,0.12,0.12,0.13,0.13,0.21,0.20,0.19,0.20,0.20,0.19,0.19,0.18,0.18,0.18,0.17,0.17,0.17,0.17,0.21,0.20,0.19,0.18,0.18,0.18,0.19,0.19,0.18,0.17,0.18,0.18,0.18,0.18,0.18,0.17,0.18,0.17,0.18,0.17,0.18,0.18,0.17,0.17,0.17,0.17,0.17,0.17],
+                                                    data: [0.17,0.14,0.13,0.12,0.12,0.12,0.12,0.12,0.13,0.13,0.21,0.20,0.19,0.20,0.20,0.19,0.19,0.18,0.18,0.18,0.17,0.17,0.17,0.17,0.21,0.20,0.19,0.18,0.18,0.18,0.19,0.19,0.18,0.17,0.18,0.18,0.18,0.18,0.18,0.17,0.18,0.17,0.18,0.17,0.18,0.18,0.17,0.17,0.17,0.17,0.17,0.17,0.18,0.17,0.17,0.17],
                                                 }],
-                                                lineAtIndex: 51                                            },
+                                                lineAtIndex: 55                                            },
                                             options: {
                                                 legend: {
                                                     display: false
@@ -378,7 +379,7 @@
 
                                     </script>
                                 </div>
-                                <small>From <a href="/exchange/bithumb" title="DACC on Bithumb exchange">Bithumb</a> on 2019-03-22 08:10:34 UTC</small>
+                                <small>From <a href="/exchange/bithumb" title="DACC on Bithumb exchange">Bithumb</a> on 2019-03-26 16:10:33 UTC</small>
                             </div>
                         <div class="divider"></div><div class="data_row">
 									<div class="col_2">
@@ -456,6 +457,38 @@
                     <div class="socials"><a onclick="ga('send', 'event', 'ICOprofile', 'Twitter', 'DACC');" rel="nofollow" href="https://twitter.com/DACCblockchain" target="_blank" title="DACC on Twitter" class="twitter">Twitter</a><a onclick="ga('send', 'event', 'ICOprofile', 'Facebook', 'DACC');" rel="nofollow" href="https://www.facebook.com/DACCblockchain" target="_blank" title="DACC on Facebook" class="facebook">Facebook</a><a onclick="ga('send', 'event', 'ICOprofile', 'GitHub', 'DACC');" rel="nofollow" href="https://github.com/DecentralizedAccessibleContentChain" target="_blank" title="DACC on GitHub" class="github">GitHub</a><a onclick="ga('send', 'event', 'ICOprofile', 'Reddit', 'DACC');"  href="https://www.reddit.com/r/DACCblockchain/" target="_blank" title="DACC on Reddit" class="reddit">Reddit</a><a onclick="ga('send', 'event', 'ICOprofile', 'Bitcointalk', 'DACC');" rel="nofollow" href="https://bitcointalk.org/index.php?action=profile;u=2193811" target="_blank" title="DACC on BitcoinTalk" class="bitcointalk">BitcoinTalk</a><a onclick="ga('send', 'event', 'ICOprofile', 'Medium', 'DACC');" rel="nofollow" href="https://medium.com/@daccproject" target="_blank" title="DACC on Medium" class="medium">Medium</a><a onclick="ga('send', 'event', 'ICOprofile', 'Telegram', 'DACC');" rel="nofollow" href="https://t.me/dacc_official_group_english" target="_blank" title="DACC on Telegram" class="telegram">Telegram</a><a onclick="ga('send', 'event', 'ICOprofile', 'Www', 'DACC');" rel="nofollow" href="http://www.dacc.co/?utm_source=icobench" target="_blank" title="DACC website" class="www">WWW</a><span data-badge-top="DACC does not have a Bitcoin Wiki page yet" class="bitcoinwiki-no"></span></div>			  <a href="/contact?report=dacc" class="button_report" title="Report this ICO">Report</a>
 			</div>
 		</div></div>	
+
+
+<style>
+#icomid{background:#e4e4e4;border-bottom:1px solid #dbdbdb;padding-top:10px;text-align:center; background:url("/images/ieo-back.png")}
+#icomid .frame{position:relative;}
+#icomid span{font-size:30px;font-weight:500;font-family:'Montserrat',sans-serif;color:#fff;text-align:center;margin:5px;padding:0;line-height:2.3;}
+#icomid a{color:#fff;text-decoration: none;}
+#icomid a:hover{color:#fff;text-decoration: underline;}
+
+.stage{
+    width: 150px;
+    height: 90px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 150px 90px;
+    display: inline-block;
+    vertical-align: middle;
+    background-image:url('/images/ieo-stage.svg');
+}
+
+</style>
+
+
+<div id="icomid">
+<div class="frame">
+
+<i class="stage"></i>
+<span><a href="/ieo">We launched IEO listing</a></span>
+</div>
+</div>
+
+
 		<div id="profile_content">
 			<div class="frame">
 				<div class="content">
@@ -539,7 +572,7 @@ There are no LinkedIn links for any of the team members. </p><div class="agree" 
 											<div style="display:none;" class="tab_content" id="team">
 							<h2>Team</h2>
 							<a href="/contact?advisor=dacc" class="button_apply notranslate">Apply as an advisor</a>
-							<h3 class="notranslate">Advisor</h3><div class="row"><div class="col_3"><a href="/u/walter+komarek" title="Walter Komarek" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 8.7"></div><div class="image_background" style="background-image:url('/images/icos/team/3768-45025.jpg');"></div></a><h3 class="notranslate">Walter Komarek</h3><h4 class="notranslate">CEO and Co-Founder of CIRCLE.ONE</h4><div class="socials"><a href="https://www.linkedin.com/in/walterkomarek/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/philippe+bouaziz" title="Philippe Bouaziz" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 6.7"></div><div class="image_background" style="background-image:url('/images/icos/team/3768-45026.jpg');"></div></a><h3 class="notranslate">Philippe Bouaziz</h3><h4 class="notranslate">Founder of Prodware Group</h4><div class="socials"><a href="https://www.linkedin.com/in/philippe-bouaziz-ab69961/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/jared+polite" title="Jared Polite" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45027.jpg');"></div></a><h3 class="notranslate">Jared Polite</h3><h4 class="notranslate">Head of Marketing at Crypto Media Group</h4><div class="socials"><a href="https://www.linkedin.com/in/jaredpolites/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/oliver+lee" title="Oliver Lee" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45028.jpg');"></div></a><h3 class="notranslate">Oliver Lee</h3><h4 class="notranslate">Founding Partner at DFJ DragonFund</h4><div class="socials"><a href="https://www.linkedin.com/in/lizhongqiang/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/luca+nichetto" title="Luca Nichetto" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45029.jpg');"></div></a><h3 class="notranslate">Luca Nichetto</h3><h4 class="notranslate">Founder and CEO of Nichetto Studio</h4><div class="socials"><a href="https://www.linkedin.com/in/lucanichetto/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/kathy+chen" title="Kathy Chen" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45030.jpg');"></div></a><h3 class="notranslate">Kathy Chen</h3><h4 class="notranslate">Former CEO of Twitter Greater China</h4><div class="socials"><a href="https://www.linkedin.com/in/kathy-chen-78b56214/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/omer+ozden" title="Omer Ozden" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45031.jpg');"></div></a><h3 class="notranslate">Omer Ozden</h3><h4 class="notranslate">Legal Counsel at ZhenFund and DFund</h4><div class="socials"><a href="https://www.linkedin.com/in/omer-ozden-259740/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div></div><h3 class="notranslate">Core members</h3><div class="row"><div class="col_3"><a href="/u/vincent+nguyen" title="Vincent Nguyen" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45018.jpg');"></div></a><h3 class="notranslate">Vincent Nguyen</h3><h4 class="notranslate">Team Leader</h4><div class="socials"><a href="https://www.linkedin.com/in/cenzovn/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/李凯利（harold+li）" title="李凯利（Harold Li）" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45019.jpg');"></div></a><h3 class="notranslate">李凯利（Harold Li）</h3><h4 class="notranslate">Technical Leader</h4><div class="socials"><a href="https://www.linkedin.com/in/kaili-li-62a92653/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/jim+ai" title="Jim Ai" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45020.jpg');"></div></a><h3 class="notranslate">Jim Ai</h3><h4 class="notranslate">Audio Tech Lead</h4><div class="socials"><a href="https://www.linkedin.com/in/jfabbottz" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/jun+zhang" title="Jun Zhang" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45021.jpg');"></div></a><h3 class="notranslate">Jun Zhang</h3><h4 class="notranslate">AI Tech Lead</h4><div class="socials"><a href="https://www.linkedin.com/in/jun-zhang-85a1993b/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/gina+hughes" title="Gina Hughes" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45022.jpg');"></div></a><h3 class="notranslate">Gina Hughes</h3><h4 class="notranslate">Media and PR Lead</h4><div class="socials"><a href="https://www.linkedin.com/in/techiediva/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/cathy+cao" title="Cathy Cao" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45023.jpg');"></div></a><h3 class="notranslate">Cathy Cao</h3><h4 class="notranslate">Media and PR Lead</h4><div class="socials"><a href="https://www.linkedin.com/in/cathy-cao-01bab619/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div></div><h3 class="notranslate">Investor</h3><div class="row"><div class="col_3"><a href="/u/huang+he" title="Huang He" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45036.jpg');"></div></a><h3 class="notranslate">Huang He</h3><h4 class="notranslate">Co-Founder and CEO of MailTime</h4><div class="socials"><a href="https://www.linkedin.com/in/heathermhuang/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/justin+sun" title="Justin Sun" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 19.4"></div><div class="image_background" style="background-image:url('/images/icos/team/3768-46331.jpg');"></div></a><h3 class="notranslate">Justin Sun</h3><h4 class="notranslate">Founder of Tron</h4><div class="socials"><a href="https://www.linkedin.com/in/sunyuchen" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/roy+li" title="Roy Li" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-46333.jpg');"></div></a><h3 class="notranslate">Roy Li</h3><h4 class="notranslate">Ruff CEO/ Ruff Chain</h4><div class="socials"><a href="https://twitter.com/Ruff_RoyLi" rel="nofollow" target="_blank" class="twitter">Twitter</a></div></div><div class="col_3"><a href="/u/ray+wu" title="Ray Wu" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-46334.jpg');"></div></a><h3 class="notranslate">Ray Wu</h3><h4 class="notranslate">Managing Partner at Skychee Ventures</h4><div class="socials"><a href="https://www.linkedin.com/in/boundaryfree/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div></div><h3 class="notranslate">Investor&Advisor</h3><div class="row"><div class="col_3"><a href="/u/david+zhu" title="David Zhu" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45032.jpg');"></div></a><h3 class="notranslate">David Zhu</h3><h4 class="notranslate">Founder, Founding Partner</h4><div class="socials"><a href="https://www.linkedin.com/in/david-zhu-9359314/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/jia+tian" title="Jia Tian" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 15"></div><div class="image_background" style="background-image:url('/images/icos/team/3768-45033.jpg');"></div></a><h3 class="notranslate">Jia Tian</h3><h4 class="notranslate">Chief Scientist</h4><div class="socials"><a href="https://www.linkedin.com/in/jitian/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div></div>                        </div>
+							<h3 class="notranslate">Advisor</h3><div class="row"><div class="col_3"><a href="/u/walter+komarek" title="Walter Komarek" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 8.5"></div><div class="image_background" style="background-image:url('/images/icos/team/3768-45025.jpg');"></div></a><h3 class="notranslate">Walter Komarek</h3><h4 class="notranslate">CEO and Co-Founder of CIRCLE.ONE</h4><div class="socials"><a href="https://www.linkedin.com/in/walterkomarek/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/philippe+bouaziz" title="Philippe Bouaziz" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 6.7"></div><div class="image_background" style="background-image:url('/images/icos/team/3768-45026.jpg');"></div></a><h3 class="notranslate">Philippe Bouaziz</h3><h4 class="notranslate">Founder of Prodware Group</h4><div class="socials"><a href="https://www.linkedin.com/in/philippe-bouaziz-ab69961/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/jared+polite" title="Jared Polite" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45027.jpg');"></div></a><h3 class="notranslate">Jared Polite</h3><h4 class="notranslate">Head of Marketing at Crypto Media Group</h4><div class="socials"><a href="https://www.linkedin.com/in/jaredpolites/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/oliver+lee" title="Oliver Lee" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45028.jpg');"></div></a><h3 class="notranslate">Oliver Lee</h3><h4 class="notranslate">Founding Partner at DFJ DragonFund</h4><div class="socials"><a href="https://www.linkedin.com/in/lizhongqiang/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/luca+nichetto" title="Luca Nichetto" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45029.jpg');"></div></a><h3 class="notranslate">Luca Nichetto</h3><h4 class="notranslate">Founder and CEO of Nichetto Studio</h4><div class="socials"><a href="https://www.linkedin.com/in/lucanichetto/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/kathy+chen" title="Kathy Chen" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45030.jpg');"></div></a><h3 class="notranslate">Kathy Chen</h3><h4 class="notranslate">Former CEO of Twitter Greater China</h4><div class="socials"><a href="https://www.linkedin.com/in/kathy-chen-78b56214/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/omer+ozden" title="Omer Ozden" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45031.jpg');"></div></a><h3 class="notranslate">Omer Ozden</h3><h4 class="notranslate">Legal Counsel at ZhenFund and DFund</h4><div class="socials"><a href="https://www.linkedin.com/in/omer-ozden-259740/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div></div><h3 class="notranslate">Core members</h3><div class="row"><div class="col_3"><a href="/u/vincent+nguyen" title="Vincent Nguyen" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45018.jpg');"></div></a><h3 class="notranslate">Vincent Nguyen</h3><h4 class="notranslate">Team Leader</h4><div class="socials"><a href="https://www.linkedin.com/in/cenzovn/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/李凯利（harold+li）" title="李凯利（Harold Li）" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45019.jpg');"></div></a><h3 class="notranslate">李凯利（Harold Li）</h3><h4 class="notranslate">Technical Leader</h4><div class="socials"><a href="https://www.linkedin.com/in/kaili-li-62a92653/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/jim+ai" title="Jim Ai" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45020.jpg');"></div></a><h3 class="notranslate">Jim Ai</h3><h4 class="notranslate">Audio Tech Lead</h4><div class="socials"><a href="https://www.linkedin.com/in/jfabbottz" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/jun+zhang" title="Jun Zhang" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45021.jpg');"></div></a><h3 class="notranslate">Jun Zhang</h3><h4 class="notranslate">AI Tech Lead</h4><div class="socials"><a href="https://www.linkedin.com/in/jun-zhang-85a1993b/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/gina+hughes" title="Gina Hughes" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45022.jpg');"></div></a><h3 class="notranslate">Gina Hughes</h3><h4 class="notranslate">Media and PR Lead</h4><div class="socials"><a href="https://www.linkedin.com/in/techiediva/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/cathy+cao" title="Cathy Cao" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45023.jpg');"></div></a><h3 class="notranslate">Cathy Cao</h3><h4 class="notranslate">Media and PR Lead</h4><div class="socials"><a href="https://www.linkedin.com/in/cathy-cao-01bab619/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div></div><h3 class="notranslate">Investor</h3><div class="row"><div class="col_3"><a href="/u/huang+he" title="Huang He" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45036.jpg');"></div></a><h3 class="notranslate">Huang He</h3><h4 class="notranslate">Co-Founder and CEO of MailTime</h4><div class="socials"><a href="https://www.linkedin.com/in/heathermhuang/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/justin+sun" title="Justin Sun" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 19.4"></div><div class="image_background" style="background-image:url('/images/icos/team/3768-46331.jpg');"></div></a><h3 class="notranslate">Justin Sun</h3><h4 class="notranslate">Founder of Tron</h4><div class="socials"><a href="https://www.linkedin.com/in/sunyuchen" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/roy+li" title="Roy Li" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-46333.jpg');"></div></a><h3 class="notranslate">Roy Li</h3><h4 class="notranslate">Ruff CEO/ Ruff Chain</h4><div class="socials"><a href="https://twitter.com/Ruff_RoyLi" rel="nofollow" target="_blank" class="twitter">Twitter</a></div></div><div class="col_3"><a href="/u/ray+wu" title="Ray Wu" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-46334.jpg');"></div></a><h3 class="notranslate">Ray Wu</h3><h4 class="notranslate">Managing Partner at Skychee Ventures</h4><div class="socials"><a href="https://www.linkedin.com/in/boundaryfree/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div></div><h3 class="notranslate">Investor&Advisor</h3><div class="row"><div class="col_3"><a href="/u/david+zhu" title="David Zhu" class="image"><div class="image_background" style="background-image:url('/images/icos/team/3768-45032.jpg');"></div></a><h3 class="notranslate">David Zhu</h3><h4 class="notranslate">Founder, Founding Partner</h4><div class="socials"><a href="https://www.linkedin.com/in/david-zhu-9359314/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/jia+tian" title="Jia Tian" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 15"></div><div class="image_background" style="background-image:url('/images/icos/team/3768-45033.jpg');"></div></a><h3 class="notranslate">Jia Tian</h3><h4 class="notranslate">Chief Scientist</h4><div class="socials"><a href="https://www.linkedin.com/in/jitian/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div></div>                        </div>
                                                                 <div style="display:none;" class="tab_content" id="financial">
                             <h2>Financial</h2>
                                                         <div class="box">
@@ -674,30 +707,30 @@ DACC begins migration to self-organising mode.</p>
                         <h4>ICOs that might interest you</h4>
                         <div class="row">
                             <div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/coincasso" class="image" style="background-image:url('/images/icos/logos/coincasso.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">3.5</span></div></a>
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/coincasso" class="image" style="background-image:url('/images/icos/logos/coincasso.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color3">3.4</span></div></a>
 										<div class="content">
 											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/coincasso"><h3 class="notranslate">CoinCasso</h3></a>
 											<p>European Licensed Hybrid Cryptocurrency Exchange.</p>
 											<div class="bottom">
-												<div class="time"><div class="icon"></div>283 days 18 hours left</div>
+												<div class="time"><div class="icon"></div>279 days 10 hours left</div>
 											</div>
 										</div>
 									</div><div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/livenpay" class="image" style="background-image:url('/images/icos/logos/livenpay.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">4.2</span></div></a>
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/migranet" class="image" style="background-image:url('/images/icos/logos/migranet.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">4.1</span></div></a>
 										<div class="content">
-											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/livenpay"><h3 class="notranslate">LivenPay</h3></a>
-											<p>Liven is an incentive-based mobile payments gateway and ecosystem built for the lifesty...</p>
+											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/migranet"><h3 class="notranslate">Migranet</h3></a>
+											<p>The world’s first Immigration Platform combining artificial intelligence, cryptocurre...</p>
 											<div class="bottom">
-												<div class="time"><div class="icon"></div>33 days 18 hours left</div>
+												<div class="time"><div class="icon"></div>141 days 10 hours left</div>
 											</div>
 										</div>
 									</div><div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/faireum" class="image" style="background-image:url('/images/icos/logos/faireum.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color5">4.6</span></div></a>
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/dexon" class="image" style="background-image:url('/images/icos/logos/dexon.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">4.0</span></div></a>
 										<div class="content">
-											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/faireum"><h3 class="notranslate">Faireum</h3></a>
-											<p>A Fair Gambling Blockchain Network for All Faireum is a public blockchain which focuses...</p>
+											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/dexon"><h3 class="notranslate">DEXON</h3></a>
+											<p>DEXON is a distributed ledger technology designed to solve the problems inherent in oth...</p>
 											<div class="bottom">
-												<div class="time">Starts in 2 days 18 hours</div>
+												<div class="time"><div class="icon"></div>Starts in 11 hours</div>
 											</div>
 										</div>
 									</div><div class="col_4">
@@ -706,7 +739,7 @@ DACC begins migration to self-organising mode.</p>
 											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/volentix"><h3 class="notranslate">Volentix</h3></a>
 											<p>Volentix is building a decentralized digital assets exchange connected with a secure mu...</p>
 											<div class="bottom">
-												<div class="time"><div class="icon"></div>40 days 18 hours left</div>
+												<div class="time"><div class="icon"></div>36 days 10 hours left</div>
 											</div>
 										</div>
 									</div>                        </div>
@@ -807,7 +840,7 @@ DACC begins migration to self-organising mode.</p>
 </div>
 
 <div class="col_5 notranslate">
-<h4>For ICOs</h4>
+<h4>For Projects</h4>
 <ul>
 <li><a onclick="ga('send', 'event', 'Footer', 'premium');" href="/premium" title="Premium listing">Premium listing</a></li>
 <li><a onclick="ga('send', 'event', 'Footer', 'publish');" href="/publish" title="Publish new ICO">Publish new ICO</a></li>
@@ -821,6 +854,7 @@ DACC begins migration to self-organising mode.</p>
 <h4>For all</h4>
 <ul>
 <li><a onclick="ga('send', 'event', 'Footer', 'icos');" href="/icos" title="ICO listing">ICO listing</a></li>
+<li><a onclick="ga('send', 'event', 'Footer', 'ieo');" href="/ieo" title="IEO listing">IEO listing</a></li>
 <li><a onclick="ga('send', 'event', 'Footer', 'stos');" href="/icos?filterTokenClass=security&nofilter&utm_source=sto_footer" title="STO listing">STO listing</a></li>
 
 <li><a onclick="ga('send', 'event', 'Footer', 'thebench');" href="/thebench" title="Blogs">Blogs</a></li>
@@ -836,7 +870,7 @@ DACC begins migration to self-organising mode.</p>
 </div>
 
 <div class="col_5 notranslate">
-<h4>Network</h4>
+<h4>Social</h4>
 <ul>
 <li><a onclick="ga('send', 'event', 'Footer', 'twitter');" href="https://www.twitter.com/ICObench" title="ICObench on Twitter" target="_blank">Twitter</a></li>
 <li><a onclick="ga('send', 'event', 'Footer', 'facebook');" href="https://www.facebook.com/ICObench" title="ICObench on Facebook" target="_blank">Facebook</a></li>
@@ -924,7 +958,7 @@ DACC begins migration to self-organising mode.</p>
                             </script>
                             <noscript><div><img src="https://mc.yandex.ru/watch/50041027" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
                             <!-- /Yandex.Metrika counter -->
-            <div class="fixedShow notranslate "><a target="_blank" onclick="ga('send', 'event', 'StickyFooter', 'telegram_channel_20190307')" href="https://t.me/icobench"><i class="fixedShowImage" style="background-image:url('/images/sps/uploaded/63545bd20a073ec170aa5644de6d9c33.png')"></i><span class="desktop">Join Telegram (7K)</span><span class="mobile">Join Telegram (7K)</span></a><span class="close" data-show-id="42" title="close"></span></div><div class="sticky_footer_height"></div><script src="/js/js.js?14"></script></body></html><style>
+            <div class="fixedShow notranslate "><a onclick="ga('send', 'event', 'StickyFooter', 'ieo20190322')" href="https://bit.ly/2YhJI8X"><i class="fixedShowImage" style="background-image:url('/images/sps/uploaded/a44e97ef6c18750e23abc72d4352faa9.svg')"></i><span class="desktop">IEO – Initial Exchange Offering</span><span class="mobile">List IEO projects</span></a><span class="close" data-show-id="43" title="close"></span></div><div class="sticky_footer_height"></div><script src="/js/js.js?14"></script></body></html><style>
 				#cookiebox {position: fixed; right: 10px; bottom: 100px; z-index:100 }
 				#cookiebox .container {font-family: "Open Sans",sans-serif;font-size: 14px;width:400px;background-color:#5a67b9;padding:10px 20px;border-radius:20px;color:white;}
 				#cookiebox .container p{}

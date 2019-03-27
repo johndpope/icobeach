@@ -49,7 +49,7 @@ class IcobenchDetailSpider(scrapy.Spider):
                 m_list.append(key)
                 # 关闭数据库
                 scrapy_db.close()
-            print(m_list)
+            print('m_list:'+str(m_list))
             with open(filename, 'r') as f:
                 line = f.readline().strip('\n').strip()
                 while line != None and line != '':
@@ -81,7 +81,7 @@ class IcobenchDetailSpider(scrapy.Spider):
         # 项目名称
         project_name_div = response.xpath("//*[@id='profile_header']/div/div[1]/div[1]/div[2]/h1")
         project_name = ''
-        if project_name_div != '[]':
+        if project_name_div != []:
             project_name = response.xpath("//*[@id='profile_header']/div/div[1]/div[1]/div[2]/h1/text()").extract()[
                 0].strip()
         else:
