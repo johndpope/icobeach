@@ -40,7 +40,7 @@ class ScrapyProjectDetailModel(BaseScrapyModel):
     # media_name = CharField(null=True)  # 媒体名称
     # media_link = CharField(null=True)  # 媒体链接
     # 团队信息
-    team = TextField(null=True)  # 媒体
+    team = TextField(null=True)  # 团队
     # team_name = CharField(null=True)  # 团队成员名称
     # team_avatar = CharField(null=True)  # 头像
     # team_socials = CharField(null=True)  # 社交媒体
@@ -70,6 +70,19 @@ class ScrapyProjectDetailModel(BaseScrapyModel):
 
     def get_by_id(self, id):
         for Model in ScrapyProjectDetailModel.select().where(ScrapyProjectDetailModel.id == id):
+            return Model
+        return None
+
+    """
+        根据id获取信息
+        By Ada
+        2019-01-29
+        """
+
+    def get_by_project_list_id(self, project_list_id):
+        print('project_list_id_model:' + str(project_list_id))
+        for Model in ScrapyProjectDetailModel.select().where(
+                ScrapyProjectDetailModel.project_list_id == project_list_id):
             return Model
         return None
 
