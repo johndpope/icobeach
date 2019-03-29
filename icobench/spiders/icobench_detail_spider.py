@@ -16,25 +16,25 @@ class IcobenchDetailSpider(scrapy.Spider):
         model = 1
         if model == 1:
             # 踩多条数据
-            # scrapyProjectLists = ScrapyProjectListModel().get_list()
-            # for scrapyProjectList in scrapyProjectLists:
-            #     page_href = scrapyProjectList.page_href
-            #     print('page_href:' + page_href)
-            #     print('start_time:' + '111')
-            #     yield scrapy.Request(url=page_href, callback=self.detail_parse, meta={"scrapyProjectListId": scrapyProjectList.id})
-            #     # 关闭数据库
-            #     scrapy_db.close()
-            #     print('start_time:' + '关闭数据库')
-            #     time.sleep(30)
+            scrapyProjectLists = ScrapyProjectListModel().get_list()
+            for scrapyProjectList in scrapyProjectLists:
+                page_href = scrapyProjectList.page_href
+                print('page_href:' + page_href)
+                print('start_time:' + '111')
+                yield scrapy.Request(url=page_href, callback=self.detail_parse, meta={"scrapyProjectListId": scrapyProjectList.id})
+                # 关闭数据库
+                scrapy_db.close()
+                print('start_time:' + '关闭数据库')
+                time.sleep(30)
 
             # 踩一条数据
-            scrapyProjectList = ScrapyProjectListModel().get_by_id(3)
-            page_href = scrapyProjectList.page_href
-            print('page_href:' + page_href)
-            yield scrapy.Request(url=page_href, callback=self.detail_parse,
-                                 meta={"scrapyProjectListId": scrapyProjectList.id})
-            # 关闭数据库
-            scrapy_db.close()
+            # scrapyProjectList = ScrapyProjectListModel().get_by_id(3)
+            # page_href = scrapyProjectList.page_href
+            # print('page_href:' + page_href)
+            # yield scrapy.Request(url=page_href, callback=self.detail_parse,
+            #                      meta={"scrapyProjectListId": scrapyProjectList.id})
+            # # 关闭数据库
+            # scrapy_db.close()
         if model == 2:
             print('retry_requests:' + 'retry_requests')
             print("wired")
