@@ -13,7 +13,7 @@ class IcobenchDetailSpider(scrapy.Spider):
 
     def start_requests(self):
 
-        model = 2
+        model = 1
         if model == 1:
             # 踩多条数据
             # scrapyProjectLists = ScrapyProjectListModel().get_list()
@@ -28,7 +28,7 @@ class IcobenchDetailSpider(scrapy.Spider):
             #     time.sleep(30)
 
             # 踩一条数据
-            scrapyProjectList = ScrapyProjectListModel().get_by_id(143)
+            scrapyProjectList = ScrapyProjectListModel().get_by_id(3)
             page_href = scrapyProjectList.page_href
             print('page_href:' + page_href)
             yield scrapy.Request(url=page_href, callback=self.detail_parse,
@@ -59,6 +59,7 @@ class IcobenchDetailSpider(scrapy.Spider):
                     line = f.readline().strip('\n').strip()
 
             print(m_list)
+            print('m_list_len:', int(len(m_list)))
             for project_list_id in m_list:
                 print('project_list_id:', project_list_id)
                 project_list = ScrapyProjectListModel().get_by_id(project_list_id)
@@ -175,6 +176,7 @@ class IcobenchDetailSpider(scrapy.Spider):
         # 软顶
         # 抓(Investment info)div
         ico_investment_info_div = response.xpath("//*[@id='financial']/div/div[2]/div")
+        # // *[ @ id = "financial"] / div[1] / div[2]
         print('ico_investment_info_div:', ico_investment_info_div)
         # 计算(Investment info)中有多少个div
         ico_investment_info_div_len = int(len(ico_investment_info_div))
@@ -192,6 +194,8 @@ class IcobenchDetailSpider(scrapy.Spider):
             # 循环抓取
             for ico_investment_info_div_len_num in range(2, ico_investment_info_div_len):
                 print('ico_investment_info_div_len_num:', ico_investment_info_div_len_num)
+                # 定义一个变量，判断是否抓到值
+                is_value = 0
                 # 抓取divider  class
                 divider_class = response.xpath(
                     "//*[@id='financial']/div/div[2]/div[" + str(
@@ -230,6 +234,10 @@ class IcobenchDetailSpider(scrapy.Spider):
                             ico_investment_info_div_len_num) + "]/div[2]/text()").extract()[
                             0].strip()
                         print('ico_accepting:', ico_accepting)
+                    is_value = 1
+                if is_value == 1:
+                    break
+
 
         # 判断预售开始时间是否存在
         ico_preico_date_label_value = response.xpath("//*[@id='profile_header']/div/div[2]/div[4]/div[1]/div/label")
@@ -386,33 +394,40 @@ class IcobenchDetailSpider(scrapy.Spider):
         media_len_a = response.xpath("//*[@id='profile_header']/div/div[2]/div[5]/a")
         media_len = int(len(media_len_a))
         print('media_len:', media_len)
-        media_name = ''
-        media_link = ''
+
         homepage = ''
-        # 定义一个媒体字典
-        media_dict = {}
+        # 定义媒体数组
+        media_dict_arr = []
         for media_len_num in range(1, media_len + 1):
+            # 定义一个媒体字典
+            media_dict = {}
             print('media_len_num:', media_len_num)
-            media_name = media_name + response.xpath("//*[@id='profile_header']/div/div[2]/div[5]/a[" + str(
-                media_len_num) + "]/text()").extract()[0].strip() + ','
+            media_name = response.xpath("//*[@id='profile_header']/div/div[2]/div[5]/a[" + str(
+                media_len_num) + "]/text()").extract()[0].strip()
             print('media_name:', media_name)
-            media_link = media_link + response.xpath("//*[@id='profile_header']/div/div[2]/div[5]/a[" + str(
-                media_len_num) + "]/@href").extract()[0] + ','
-            media_dict[media_name] = media_link
+            media_link = response.xpath("//*[@id='profile_header']/div/div[2]/div[5]/a[" + str(
+                media_len_num) + "]/@href").extract()[0]
             print('media_link:', media_link)
+            media_dict['name'] = media_name
+            media_dict['link'] = media_link
+            print('media_dict_for:', media_dict)
+            media_dict_arr.append(media_dict)
+            print('media_dict_arr_for:', media_dict_arr)
+
             # 官网
             if media_name == 'WWW':
                 homepage = response.xpath(
                     "//*[@id='profile_header']/div/div[2]/div[5]/a[" + str(media_len_num) + "]/@href").extract()[
                     0].strip()
                 print('homepage:', homepage)
-        print('media_dict:', media_dict)
+        print('media_dict_arr:', media_dict_arr)
 
         # 团队信息
         team_h3 = response.xpath("// *[ @ id = 'team'] / h3")
         team_h3_len = int(len(team_h3))
-        # 定义一个团队字典
-        team_dict = {}
+
+        # 定义媒体数组
+        team_dict_arr = []
         print('team_h3_len:', team_h3_len)
         if team_h3_len == 1:
             # 团队信息
@@ -420,6 +435,8 @@ class IcobenchDetailSpider(scrapy.Spider):
             team_len = int(len(team_len_div))
             print('team_len:', team_len)
             for team_len_num in range(1, team_len + 1):
+                # 定义一个团队字典
+                team_dict = {}
                 print('team_len_num:', team_len_num)
                 # 抓取头像
                 team_avatar = response.xpath("//*[@id='team']/div[1]/div[" + str(
@@ -452,12 +469,15 @@ class IcobenchDetailSpider(scrapy.Spider):
                     team_socials = response.xpath("//*[@id='team']/div[1]/div[" + str(
                         team_len_num) + "]/div/a/@href").extract()[0]
                     print('team_socials:', team_socials)
-                team_dict[team_name] = team_name
-                team_dict[team_name + '_avatar'] = team_avatar
-                team_dict[team_name + '_title'] = team_title
-                team_dict[team_name + '_socials'] = team_socials
+                team_dict['name'] = team_name
+                team_dict['avatar'] = team_avatar
+                team_dict['title'] = team_title
+                team_dict['socials'] = team_socials
+                team_dict_arr.append(team_dict)
         else:
             for team_h3_len_num in range(1, team_h3_len + 1):
+                # 定义一个团队字典
+                team_dict = {}
                 print('team_h3_len_num:', team_h3_len_num)
                 team_h3_value = response.xpath("// *[ @id='team']/h3[" + str(team_h3_len_num) + "]/text()").extract()[
                     0].strip()
@@ -480,10 +500,22 @@ class IcobenchDetailSpider(scrapy.Spider):
                         team_name = response.xpath("//*[@id='team']/div[" + str(team_h3_len_num) + "]/div[" + str(
                             team_len_num) + "]/h3/text()").extract()[0].strip()
                         print('team_name:', team_name)
+                        # # 职位
+                        # team_title = response.xpath("//*[@id='team']/div[" + str(team_h3_len_num) + "]/div[" + str(
+                        #     team_len_num) + "]/h4/text()").extract()[0].strip()
+                        # print('team_title:', team_title)
                         # 职位
-                        team_title = response.xpath("//*[@id='team']/div[" + str(team_h3_len_num) + "]/div[" + str(
-                            team_len_num) + "]/h4/text()").extract()[0].strip()
-                        print('team_title:', team_title)
+                        team_title = ''
+                        team_title_div = response.xpath(
+                            "//*[@id='team']/div[" + str(team_h3_len_num) + "]/div[" + str(
+                                team_len_num) + "]/h4")
+                        team_title_div_len = int(len(team_title_div))
+                        if team_title_div_len != 0:
+                            # 职位
+                            team_title = response.xpath("//*[@id='team']/div[" + str(team_h3_len_num) + "]/div[" + str(
+                                team_len_num) + "]/h4/text()").extract()[0].strip()
+                            print('team_title:', team_title)
+
                         # 社交媒体
                         team_socials_div = response.xpath(
                             "//*[@id='team']/div[" + str(team_h3_len_num) + "]/div[" + str(
@@ -504,11 +536,13 @@ class IcobenchDetailSpider(scrapy.Spider):
                             else:
                                 team_socials = ''
                                 print('team_socials:', team_socials)
-                        team_dict[team_name] = team_name
-                        team_dict[team_name + '_avatar'] = team_avatar
-                        team_dict[team_name + '_title'] = team_title
-                        team_dict[team_name + '_socials'] = team_socials
-        print('team_dict:', team_dict)
+                        team_dict['name'] = team_name
+                        team_dict['avatar'] = team_avatar
+                        team_dict['title'] = team_title
+                        team_dict['socials'] = team_socials
+                        team_dict_arr.append(team_dict)
+                        print('team_dict:', team_dict)
+        print('team_dict_arr:', team_dict_arr)
 
         # 线路
         # 线路下一共有多少个div
@@ -516,8 +550,10 @@ class IcobenchDetailSpider(scrapy.Spider):
         roadmap_div_len = int(len(roadmap_div))
         print('roadmap_div_len:', roadmap_div_len)
         # 定义一个线路字典
-        roadmap_dict = {}
+        roadmap_dict_arr = []
         for roadmap_div_len_num in range(1, roadmap_div_len + 1):
+            # 定义一个线路字典
+            roadmap_dict = {}
             print('roadmap_div_len_num:', roadmap_div_len_num)
             # 时间
             # roadmap_time_div = response.xpath(
@@ -534,13 +570,22 @@ class IcobenchDetailSpider(scrapy.Spider):
             #     roadmap_time = ''
             print('roadmap_time:', roadmap_time)
             # 目标
-            roadmap_target = \
+            roadmap_target = ''
+            roadmap_target_p = \
                 response.xpath(
                     "//*[@id='milestones']/div/div[" + str(roadmap_div_len_num) + "]/div[2]/p/text()").extract()[
                     0].strip()
+            if roadmap_target_p != []:
+                roadmap_target = \
+                    response.xpath(
+                        "//*[@id='milestones']/div/div[" + str(roadmap_div_len_num) + "]/div[2]/p/text()").extract()[
+                        0].strip()
             print('roadmap_target:', roadmap_target)
-            roadmap_dict[roadmap_time] = roadmap_target
-        print('roadmap_dict:', roadmap_dict)
+            roadmap_dict['roadmap_time'] = roadmap_time
+            roadmap_dict['roadmap_target'] = roadmap_target
+            roadmap_dict_arr.append(roadmap_dict)
+            # roadmap_dict[roadmap_time] = roadmap_target
+        print('roadmap_dict_arr:', roadmap_dict_arr)
 
         # 将数据存到数据库里
         scrapy_project_detail_model = ScrapyProjectDetailModel(
@@ -569,9 +614,9 @@ class IcobenchDetailSpider(scrapy.Spider):
             ico_public_start_date=ico_public_start_date,  # 公募开始时间
             ico_public_end_date=ico_public_end_date,  # 公募结束时间
             ico_public_price=ico_initial_price,  # 公募价格
-            media=media_dict,  # 媒体
-            team=team_dict,  # 团队
-            roadmap=roadmap_dict,  # 路线
+            media=media_dict_arr,  # 媒体
+            team=team_dict_arr,  # 团队
+            roadmap=roadmap_dict_arr,  # 路线
         )
         print('scrapy_project_detail_model:' + str(scrapy_project_detail_model))
         ScrapyProjectDetailModel().update_model(scrapy_project_detail_model)
