@@ -13,7 +13,7 @@ class IcobenchDetailSpider(scrapy.Spider):
 
     def start_requests(self):
 
-        model = 1
+        model = 2
         if model == 1:
             # 踩多条数据
             scrapyProjectLists = ScrapyProjectListModel().get_list()
@@ -52,6 +52,7 @@ class IcobenchDetailSpider(scrapy.Spider):
             print('m_list:'+str(m_list))
             with open(filename, 'r') as f:
                 line = f.readline().strip('\n').strip()
+                print("line1", line)
                 while line != None and line != '':
                     print("line", line)
                     m_list.remove(int(line))
@@ -660,8 +661,34 @@ if __name__ == '__main__':
     # len_num = 1
     # for len_num in range(1, 3):
     #     print('len_num:', len_num)
-    ico_circulating_supply = '9125%'
-    demo = ico_circulating_supply.strip('%')
-    print("111:"+ico_circulating_supply.strip('%'))
-    print("2222:"+demo.replace(',', ''))
-    ico_circulating_supply = float(demo.replace(',', ''))  # 去掉s 字符串中的 %
+    # ico_circulating_supply = '9125%'
+    # demo = ico_circulating_supply.strip('%')
+    # print("111:"+ico_circulating_supply.strip('%'))
+    # print("2222:"+demo.replace(',', ''))
+    # ico_circulating_supply = float(demo.replace(',', ''))  # 去掉s 字符串中的 %
+
+    print('retry_requests:' + 'retry_requests')
+    print("wired")
+    current_path = os.path.abspath(__file__)
+    # 获取当前文件的父目录
+    father_path = os.path.abspath(os.path.dirname(current_path) + os.path.sep + ".")
+    root_path = os.path.dirname(father_path)
+    filename = root_path + '/html/details/status.text'
+    m_list = []
+    scrapyProjectListCount = ScrapyProjectListModel().get_count()
+    for key in range(1, scrapyProjectListCount):
+        m_list.append(key)
+        # 关闭数据库
+        scrapy_db.close()
+    print('m_list:' + str(m_list))
+    with open(filename, 'r') as f:
+        line = f.readline().strip('\n').strip()
+        print("line1", line)
+        while line != None and line != '':
+            print("line", line)
+            m_list.remove(int(line))
+            # m_list[int(line)-1]
+            line = f.readline().strip('\n').strip()
+
+    print(m_list)
+    print('m_list_len:', int(len(m_list)))
