@@ -41,7 +41,7 @@
 						<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 						<meta name="theme-color" content="#ffffff">
 						<link title="ICObench" type="application/opensearchdescription+xml" rel="search" href="https://icobench.com/opensearch.xml">
-						<link href="/css/style.css?v=1553781206" id="css" rel="stylesheet" type="text/css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+						<link href="/css/style.css?v=1553870594" id="css" rel="stylesheet" type="text/css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script><script>
 										  !function(f,b,e,v,n,t,s)
@@ -224,7 +224,12 @@ merchants and affiliates.</p>
 
                     <div itemscope itemtype="http://schema.org/Organization"><div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="rating"><meta property="worstRating" content="0">
 									<div itemprop="ratingValue" content="2.6"> 
-										<div class="rate color3">2.6</div>
+
+								    <a class="view_rating" href="#" onclick="$([document.documentElement, document.body]).animate({ scrollTop: $('#scrollhere').offset().top - 20 }, 250); openPage('ratings',event); return false" title="View rating distribution"><div class="rate color3">2.6</div></a>
+
+                                    
+
+
 										<a target="_blank" onclick="ga('send', 'event', 'ICOprofile', 'What is rating?', 'Truxir');" href="/ratings" title="What is this?" class="help"></a>
 										<span style="display:none;" itemprop="ratingCount" content="1">1</span>
 										<small>0 expert ratings</small>
@@ -259,92 +264,55 @@ merchants and affiliates.</p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <a class="view_rating" href="#" onclick="$([document.documentElement, document.body]).animate({ scrollTop: $('#scrollhere').offset().top - 20 }, 250); openPage('ratings',event); return false" title="View rating distribution">View rating distribution</a>
+                                            
+                                            <style>
+                                            .ssrow { color: #000; text-align: right; font-size: 12px; text-decoration: none; margin: 0 auto 0 0; font-weight:normal;}
+                                            .sspdf { background:url("../images/pdf.svg") no-repeat;background-size:20px 20px;background-position:0px 0px; width:20px; height:20px; display:inline-block; vertical-align: middle; margin-right:4px; margin-top:-4px;}
+                                            .sspro {border-radius:4px; border:1px solid #5a67b9; background-color:white; padding:1px 5px; color:#5a67b9;margin-left:4px;}
+                                            .ssrow:hover > .sspro {background-color:#5a67b9;color:white;border:1px solid #5a67b9;}
+
+                                            </style>
+
+
+
+                                            <a class="ssrow" href="/pro/?utm_source=ico&utm_medium=truxir" title="Truxir full analytical review in PDF">
+                                            <i class="sspdf"></i>Review: coming soon <span class="sspro">PRO</span></a>
+
 										</div>
 									</div>
-								</div></div>                        <div class="icoFullReport">
-                            <a href="/pro?utm_campaign=im2019provision&utm_source=ico&utm_medium=truxir"><span class="pro-icon" style="border:1px solid #fff;margin-right:5px;margin-top:-3px">PRO</span>vision: ICO in details</a>
-                        </div>
-                        
+								</div></div>
                     <div class="ico-profile-hitbtc"><a href="https://hitbtc.com/?ref_id=5c11455aa5c47" target="_blank"><img src="/images/hiter_bench.svg"></a></div>                    
                     <div class="financial_data">
-                                                                                <div class="row">
-                                <div class="col_2 expand">
-                                    <label>PreICO time</label>
-                                    <div class="number">Ended</div>
-                                    <small>2018-12-15 - 2019-01-15</small>
-                                </div>
-                            </div>
-                            <div class="divider-empty"></div>
-                                                        <div class="row">
-                                <div class="col_2 expand">
-                                    <label>ICO Time</label>
-                                    <div class="number">1 day 15 hours left</div>
-                                    <small>2019-01-15 - 2019-03-31</small>
-                                </div>
-                            </div>
-                            <div class="divider"></div>
-                            <div class="data_row">
+                        <div class="row">
+									<div class="col_2">
+										<label>Status</label>
+										<div class="number">Ended</div>
+									</div>
+								</div>
+								<div class="divider"></div><div class="data_row">
 									<div class="col_2">
 										Token
 									</div>
+									<div class="col_2"><b>TIR</b></div>
+								</div><div class="data_row">
+									<div class="col_2">Type</div>
 									<div class="col_2">
-										<b>TIR</b>
+									    <b><a href="/icos?filterTokenClass=utility&nofilter&utm_source=ico&utm_medium=utility">Utility</a></b>
+									    
 									</div>
 								</div><div class="data_row">
-                                        <div class="col_2">Type</div>
-                                        <div class="col_2">
-                                            <b><a href="/icos?filterTokenClass=utility&nofilter&utm_source=ico&utm_medium=utility">Utility</a></b>
-                                            
-                                        </div>
-                                    </div><div class="data_row">
 									<div class="col_2">
-										PreICO Price
+										Price in preICO
 									</div>
 									<div class="col_2">
 										<b>1 TIR = 0.04 USD</b>
 									</div>
 								</div><div class="data_row">
 									<div class="col_2">
-										Price
+										Price in ICO
 									</div>
 									<div class="col_2">
-										<b>1 TIR = 0.4 USD</b>
-									</div>
-								</div><div class="data_row">
-									<div class="col_2">
-										Platform
-									</div>
-									<div class="col_2">
-										<b><a href="/icos?filterPlatform=Ethereum&nofilter" title="ICOs on Ethereum platform">Ethereum</a></b>
-									</div>
-								</div><div class="data_row">
-									<div class="col_2">
-										Accepting
-									</div>
-									<div class="col_2">
-										<b>ETH, BTC, LTC, Fiat </b>
-									</div>
-								</div><div class="data_row">
-									<div class="col_2">
-										Minimum investment
-									</div>
-									<div class="col_2">
-										<b>50 USD</b>
-									</div>
-								</div><div class="data_row">
-									<div class="col_2 notranslate">
-										Soft cap
-									</div>
-									<div class="col_2">
-										<b>500,000 USD</b>
-									</div>
-								</div><div class="data_row">
-									<div class="col_2 notranslate">
-										Hard cap
-									</div>
-									<div class="col_2">
-										<b>1,800,000 USD</b>
+										<b>0.4000 USD</b>
 									</div>
 								</div><div class="data_row">
 									<div class="col_2">
@@ -354,11 +322,39 @@ merchants and affiliates.</p>
 										<b><a href="/icos?filterCountry=Tunisia&nofilter" title="ICOs from Tunisia">Tunisia</a></b>
 									</div>
 								</div><div class="data_row">
-									<div class="col_2 notranslate">
+									<div class="col_2">
 										Whitelist/KYC
 									</div>
 									<div class="col_2"><b>KYC</b></div>
-								</div><div class="divider"></div><a onclick="ga('send', 'event', 'ICOprofile', 'Visit ICO website', 'Truxir');" rel="nofollow" href="https://www.truxir.com?utm_source=icobench" target="_blank" class="button_big">Visit ICO website<div class="imgout"></div></a>                    </div>
+								</div><div class="data_row">
+									<div class="col_2">
+										preICO start
+									</div>
+									<div class="col_2">
+										<b>15th Dec 2018</b>
+									</div>
+								</div><div class="data_row">
+									<div class="col_2">
+										preICO end
+									</div>
+									<div class="col_2">
+										<b>15th Jan 2019</b>
+									</div>
+								</div><div class="data_row">
+									<div class="col_2">
+										ICO start
+									</div>
+									<div class="col_2">
+										<b>15th Jan 2019</b>
+									</div>
+								</div><div class="data_row">
+								<div class="col_2">
+									ICO end
+								</div>
+								<div class="col_2">
+									<b>31st Mar 2019</b>
+								</div>
+							</div><div class="divider"></div><a onclick="ga('send', 'event', 'ICOprofile', 'Visit ICO website', 'Truxir');" rel="nofollow" href="https://www.truxir.com?utm_source=icobench" target="_blank" class="button_big">Visit ICO website</a>                    </div>
                     <div class="socials"><a onclick="ga('send', 'event', 'ICOprofile', 'Twitter', 'Truxir');" rel="nofollow" href="https://twitter.com/Truxir1" target="_blank" title="Truxir on Twitter" class="twitter">Twitter</a><a onclick="ga('send', 'event', 'ICOprofile', 'Facebook', 'Truxir');" rel="nofollow" href="https://www.facebook.com/Truxir-1978447008901683" target="_blank" title="Truxir on Facebook" class="facebook">Facebook</a><a onclick="ga('send', 'event', 'ICOprofile', 'Telegram', 'Truxir');" rel="nofollow" href="https://t.me/truxir" target="_blank" title="Truxir on Telegram" class="telegram">Telegram</a><a onclick="ga('send', 'event', 'ICOprofile', 'Www', 'Truxir');" rel="nofollow" href="https://www.truxir.com?utm_source=icobench" target="_blank" title="Truxir website" class="www">WWW</a><span data-badge-top="Truxir does not have a Bitcoin Wiki page yet" class="bitcoinwiki-no"></span></div>			  <a href="/contact?report=truxir" class="button_report" title="Report this ICO">Report</a>
 			</div>
 		</div></div>	
@@ -482,7 +478,7 @@ merchants and affiliates.</p>
                                     <div class="divider"></div><div class="row">	<div class="label notranslate">Token</div>	<div class="value notranslate">TIR</div></div><div class="row">	<div class="label">Platform</div>	<div class="value notranslate">Ethereum</div></div><div class="row">	<div class="label">Type</div>	<div class="value">ERC20</div></div><div class="divider"></div><div class="row">	<div class="label">PreICO price</div>	<div class="value">1 TIR = 0.04 USD</div></div><div class="row">	<div class="label">Price in ICO</div>	<div class="value">0.4000 USD</div></div><div class="divider"></div><div class="row">	<div class="label">Tokens for sale</div>	<div class="value">50,000,000,000</div></div><div class="divider"></div>                                </div>
                                 <div class="box_right">
                                     <h3>Investment info</h3>
-                                    <div class="divider"></div><div class="row">	<div class="label">Min. investment</div>	<div class="value">50 USD</div></div><div class="row">	<div class="label">Accepting</div>	<div class="value">ETH, BTC, LTC, Fiat </div></div><div class="row">	<div class="label">Distributed in ICO</div>	<div class="value">33.33%</div></div><div class="row">	<div class="label">Soft cap</div>	<div class="value">500,000 USD</div></div><div class="row">	<div class="label">Hard cap</div>	<div class="value">1,800,000 USD</div></div><div class="divider"></div>                                </div>
+                                    <div class="divider"></div><div class="row">	<div class="label">Min. investment</div>	<div class="value">50 USD</div></div><div class="row">	<div class="label">Accepting</div>	<div class="value">ETH, BTC, LTC, Fiat </div></div><div class="row">	<div class="label">Distributed in ICO</div>	<div class="value">33.33%</div></div><div class="row">	<div class="label">Soft cap</div>	<div class="value">500,000 USD</div></div><div class="row">	<div class="label">Hard cap</div>	<div class="value">1,800,000 USD</div></div><div class="divider"></div><div class="row">	<div class="label">Raised</div>	<div class="value">Unknown	</div></div>                                </div>
                             </div>
                             
                         </div>
@@ -575,12 +571,12 @@ merchants and affiliates.</p>
                         <h4>ICOs that might interest you</h4>
                         <div class="row">
                             <div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/livenpay" class="image" style="background-image:url('/images/icos/logos/livenpay.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">4.3</span></div></a>
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/livenpay" class="image" style="background-image:url('/images/icos/logos/livenpay.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">4.4</span></div></a>
 										<div class="content">
 											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/livenpay"><h3 class="notranslate">LivenPay</h3></a>
 											<p>Liven is an incentive-based mobile payments gateway and ecosystem built for the lifesty...</p>
 											<div class="bottom">
-												<div class="time"><div class="icon"></div>26 days 15 hours left</div>
+												<div class="time"><div class="icon"></div>23 days 18 hours left</div>
 											</div>
 										</div>
 									</div><div class="col_4">
@@ -589,16 +585,7 @@ merchants and affiliates.</p>
 											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/migranet"><h3 class="notranslate">Migranet</h3></a>
 											<p>The world’s first Immigration Platform combining artificial intelligence, cryptocurre...</p>
 											<div class="bottom">
-												<div class="time"><div class="icon"></div>138 days 15 hours left</div>
-											</div>
-										</div>
-									</div><div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/dayta" class="image" style="background-image:url('/images/icos/logos/dayta.jpg');"><div class="tags"><span class="rate color5">4.8</span></div></a>
-										<div class="content">
-											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/dayta"><h3 class="notranslate">Dayta</h3></a>
-											<p>The Dayta platform is the future of personal data exchange, powered by DAYTA token.</p>
-											<div class="bottom">
-												<div class="time">Starts in 32 days 15 hours</div>
+												<div class="time"><div class="icon"></div>135 days 18 hours left</div>
 											</div>
 										</div>
 									</div><div class="col_4">
@@ -607,7 +594,16 @@ merchants and affiliates.</p>
 											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/global-property-register"><h3 class="notranslate">Global Property Register</h3></a>
 											<p>Global Property Register -Where Blockchain and Artificial Intelligence Meet.</p>
 											<div class="bottom">
-												<div class="time">48 days 15 hours left</div>
+												<div class="time">45 days 18 hours left</div>
+											</div>
+										</div>
+									</div><div class="col_4">
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/talentico" class="image" style="background-image:url('/images/icos/logos/talentico.jpg');"><div class="tags"><span class="rate color4">3.9</span></div></a>
+										<div class="content">
+											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/talentico"><h3 class="notranslate">Talentico</h3></a>
+											<p>Global decentralized ecosystem based on blockchain, where talented cryptoinvestors earn...</p>
+											<div class="bottom">
+												<div class="time"><div class="icon"></div>Starts in 77 days 18 hours</div>
 											</div>
 										</div>
 									</div>                        </div>

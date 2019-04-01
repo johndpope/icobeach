@@ -44,7 +44,7 @@ and global investment opportunity." />
 						<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 						<meta name="theme-color" content="#ffffff">
 						<link title="ICObench" type="application/opensearchdescription+xml" rel="search" href="https://icobench.com/opensearch.xml">
-						<link href="/css/style.css?v=1553781206" id="css" rel="stylesheet" type="text/css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+						<link href="/css/style.css?v=1553870594" id="css" rel="stylesheet" type="text/css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script><script>
 										  !function(f,b,e,v,n,t,s)
@@ -225,7 +225,12 @@ and global investment opportunity." />
 
                     <div itemscope itemtype="http://schema.org/Organization"><div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="rating"><meta property="worstRating" content="0">
 									<div itemprop="ratingValue" content="2.8"> 
-										<div class="rate color3">2.8</div>
+
+								    <a class="view_rating" href="#" onclick="$([document.documentElement, document.body]).animate({ scrollTop: $('#scrollhere').offset().top - 20 }, 250); openPage('ratings',event); return false" title="View rating distribution"><div class="rate color3">2.8</div></a>
+
+                                    
+
+
 										<a target="_blank" onclick="ga('send', 'event', 'ICOprofile', 'What is rating?', 'Bitproperty');" href="/ratings" title="What is this?" class="help"></a>
 										<span style="display:none;" itemprop="ratingCount" content="1">1</span>
 										<small>0 expert ratings</small>
@@ -260,13 +265,23 @@ and global investment opportunity." />
                                                     </div>
                                                 </div>
                                             </div>
-                                            <a class="view_rating" href="#" onclick="$([document.documentElement, document.body]).animate({ scrollTop: $('#scrollhere').offset().top - 20 }, 250); openPage('ratings',event); return false" title="View rating distribution">View rating distribution</a>
+                                            
+                                            <style>
+                                            .ssrow { color: #000; text-align: right; font-size: 12px; text-decoration: none; margin: 0 auto 0 0; font-weight:normal;}
+                                            .sspdf { background:url("../images/pdf.svg") no-repeat;background-size:20px 20px;background-position:0px 0px; width:20px; height:20px; display:inline-block; vertical-align: middle; margin-right:4px; margin-top:-4px;}
+                                            .sspro {border-radius:4px; border:1px solid #5a67b9; background-color:white; padding:1px 5px; color:#5a67b9;margin-left:4px;}
+                                            .ssrow:hover > .sspro {background-color:#5a67b9;color:white;border:1px solid #5a67b9;}
+
+                                            </style>
+
+
+
+                                            <a class="ssrow" href="/pro/?utm_source=ico&utm_medium=bitproperty" title="Bitproperty full analytical review in PDF">
+                                            <i class="sspdf"></i>Review: coming soon <span class="sspro">PRO</span></a>
+
 										</div>
 									</div>
-								</div></div>                        <div class="icoFullReport">
-                            <a href="/pro?utm_campaign=im2019provision&utm_source=ico&utm_medium=bitproperty"><span class="pro-icon" style="border:1px solid #fff;margin-right:5px;margin-top:-3px">PRO</span>vision: ICO in details</a>
-                        </div>
-                        
+								</div></div>
                     <div class="ico-profile-hitbtc"><a href="https://hitbtc.com/?ref_id=5c11455aa5c47" target="_blank"><img src="/images/hiter_bench.svg"></a></div>                    
                     <div class="financial_data">
                         <div class="row row_trading">
@@ -325,7 +340,7 @@ and global investment opportunity." />
                                         var myChart = new Chart(ctx, {
                                             type: 'line',
                                             data: {
-                                                labels:["2018-12-20","2018-12-21","2018-12-22","2018-12-23","2018-12-24","2018-12-25","2018-12-26","2018-12-27","2018-12-28","2018-12-29","2018-12-30","2018-12-31","2019-01-01","2019-01-02","2019-01-03","2019-01-04","2019-01-05","2019-01-06","2019-01-07","2019-01-08","2019-01-09","2019-01-10","2019-01-11","2019-01-12","2019-01-13","2019-01-14","2019-01-15","2019-01-16","2019-01-17","2019-01-18","2019-01-19","2019-01-20","2019-01-21","2019-01-22","2019-01-23","2019-01-24","2019-01-25","2019-01-26","2019-01-27","2019-01-28","2019-01-29","2019-01-30","2019-01-31","2019-02-01","2019-02-02","2019-02-03","2019-02-04","2019-02-05","2019-02-06","2019-02-07","2019-02-08","2019-02-09","2019-02-10","2019-02-11","2019-02-12","2019-02-13","2019-02-14","2019-02-15","2019-02-16","2019-02-17","2019-02-18","2019-02-19","2019-02-20","2019-02-21","2019-02-22","2019-02-23","2019-02-24","2019-02-25","2019-02-26","2019-02-27","2019-02-28","2019-03-01","2019-03-02","2019-03-03","2019-03-04","2019-03-05","2019-03-06","2019-03-07","2019-03-08","2019-03-09","2019-03-10","2019-03-11","2019-03-12","2019-03-13","2019-03-14","2019-03-15","2019-03-16","2019-03-17","2019-03-18","2019-03-19","2019-03-20","2019-03-21","2019-03-22","2019-03-23","2019-03-24","2019-03-25","2019-03-26","2019-03-27","2019-03-28","2019-03-29","2019-03-29"],
+                                                labels:["2018-12-23","2018-12-24","2018-12-25","2018-12-26","2018-12-27","2018-12-28","2018-12-29","2018-12-30","2018-12-31","2019-01-01","2019-01-02","2019-01-03","2019-01-04","2019-01-05","2019-01-06","2019-01-07","2019-01-08","2019-01-09","2019-01-10","2019-01-11","2019-01-12","2019-01-13","2019-01-14","2019-01-15","2019-01-16","2019-01-17","2019-01-18","2019-01-19","2019-01-20","2019-01-21","2019-01-22","2019-01-23","2019-01-24","2019-01-25","2019-01-26","2019-01-27","2019-01-28","2019-01-29","2019-01-30","2019-01-31","2019-02-01","2019-02-02","2019-02-03","2019-02-04","2019-02-05","2019-02-06","2019-02-07","2019-02-08","2019-02-09","2019-02-10","2019-02-11","2019-02-12","2019-02-13","2019-02-14","2019-02-15","2019-02-16","2019-02-17","2019-02-18","2019-02-19","2019-02-20","2019-02-21","2019-02-22","2019-02-23","2019-02-24","2019-02-25","2019-02-26","2019-02-27","2019-02-28","2019-03-01","2019-03-02","2019-03-03","2019-03-04","2019-03-05","2019-03-06","2019-03-07","2019-03-08","2019-03-09","2019-03-10","2019-03-11","2019-03-12","2019-03-13","2019-03-14","2019-03-15","2019-03-16","2019-03-17","2019-03-18","2019-03-19","2019-03-20","2019-03-21","2019-03-22","2019-03-23","2019-03-24","2019-03-25","2019-03-26","2019-03-27","2019-03-28","2019-03-29","2019-03-30","2019-03-31","2019-04-01","2019-04-01"],
                                                 datasets: [{
                                                     label: "Data",
                                                     borderColor: gradientStroke,
@@ -333,7 +348,7 @@ and global investment opportunity." />
                                                     pointBackgroundColors: gradientStroke,
                                                     fill: false,
                                                     borderWidth: 6,
-                                                    data: [0.01,0.01,0.01,0.01,0.01,0.01,0.00,0.01,0.00,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.00,0.01,0.01,0.00,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01],
+                                                    data: [0.01,0.01,0.01,0.00,0.01,0.00,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.00,0.01,0.01,0.00,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01],
                                                 }],
                                                 lineAtIndex: 100                                            },
                                             options: {
@@ -380,7 +395,7 @@ and global investment opportunity." />
 
                                     </script>
                                 </div>
-                                <small>From <a href="/exchange/yobit" title="BTP on YoBit exchange">YoBit</a> on 2019-03-29 12:10:35 UTC</small>
+                                <small>From <a href="/exchange/yobit" title="BTP on YoBit exchange">YoBit</a> on 2019-04-01 08:00:35 UTC</small>
                             </div>
                         <div class="divider"></div><div class="data_row">
 									<div class="col_2">
@@ -546,7 +561,7 @@ and global investment opportunity." />
 											<div style="display:none;" class="tab_content" id="team">
 							<h2>Team</h2>
 							<a href="/contact?advisor=bitproperty" class="button_apply notranslate">Apply as an advisor</a>
-							<div class="row"><div class="col_3"><a href="/u/ryo+nomura" title="Ryo Nomura" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 7.92"></div><div class="image_background" style="background-image:url('/images/icos/team/67-720.jpg');"></div></a><h3 class="notranslate">Ryo Nomura</h3><h4 class="notranslate">Bitproperty CEO</h4></div><div class="col_3"><a href="/u/shunta+oka" title="Shunta Oka" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 7.92"></div><div class="image_background" style="background-image:url('/images/icos/team/67-724.jpg');"></div></a><h3 class="notranslate">Shunta Oka</h3><h4 class="notranslate">Project Manager and UI/UX Lead</h4><div class="socials"><a href="https://www.linkedin.com/in/shunta-oka-a1775770/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/hayato+shimomae" title="Hayato Shimomae" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 7.92"></div><div class="image_background" style="background-image:url('/images/icos/team/67-725.jpg');"></div></a><h3 class="notranslate">Hayato Shimomae</h3><h4 class="notranslate">Bitproperty Full Stack Engineer</h4><div class="socials"><a href="https://www.facebook.com/shimomaehayato" rel="nofollow" target="_blank" class="facebook">Facebook</a></div></div><div class="col_3"><a href="/u/ryo+hasegawa" title="Ryo Hasegawa" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 7.92"></div><div class="image_background" style="background-image:url('/images/icos/team/67-726.jpg');"></div></a><h3 class="notranslate">Ryo Hasegawa</h3><h4 class="notranslate">Bitproperty Backend Engineer</h4><div class="socials"><a href="https://www.facebook.com/ryo.hasegawa.752" rel="nofollow" target="_blank" class="facebook">Facebook</a></div></div><div class="col_3"><a href="/u/rie+igarashi" title="Rie Igarashi" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 7.92"></div><div class="image_background" style="background-image:url('/images/icos/team/67-2569.jpg');"></div></a><h3 class="notranslate">Rie Igarashi</h3><h4 class="notranslate">Public Relations and Marketing Specialist</h4><div class="socials"><a href="https://www.facebook.com/rieigarashi08" rel="nofollow" target="_blank" class="facebook">Facebook</a></div></div><div class="col_3"><a href="/u/patrick+storchenegger" title="Patrick Storchenegger" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 10.92"></div><div class="image_background" style="background-image:url('/images/icos/team/67-2570.jpg');"></div></a><h3 class="notranslate">Patrick Storchenegger</h3><h4 class="notranslate">Bitproperty Legal Advisor</h4></div><div class="col_3"><a href="/u/francis+müller" title="Francis Müller" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 7.92"></div><div class="image_background" style="background-image:url('/images/icos/team/67-2571.jpg');"></div></a><h3 class="notranslate">Francis Müller</h3><h4 class="notranslate">Support and token holder relations</h4><div class="socials"><a href="https://www.facebook.com/francis.mueller.3" rel="nofollow" target="_blank" class="facebook">Facebook</a></div></div><div class="col_3"><a href="/u/dr.+angelina+parfenova" title="Dr. Angelina Parfenova" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 7.92"></div><div class="image_background" style="background-image:url('/images/icos/team/67-2572.jpg');"></div></a><h3 class="notranslate">Dr. Angelina Parfenova</h3><h4 class="notranslate">Energy Advisor</h4></div></div><h3 class="notranslate">Advisors</h3><div class="row"><div class="col_3"><a href="/u/yonatan+ben+shimon" title="Yonatan Ben Shimon" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 10.92"></div><div class="image_background" style="background-image:url('/images/icos/team/67-721.jpg');"></div></a><h3 class="notranslate">Yonatan Ben Shimon</h3><h4 class="notranslate">General Advisor</h4><div class="socials"><a href="https://www.linkedin.com/in/yonatan-ben-shimon-84993668/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/max+richardson" title="Max Richardson" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 8.92"></div><div class="image_background" style="background-image:url('/images/icos/team/67-722.jpg');"></div></a><h3 class="notranslate">Max Richardson</h3><h4 class="notranslate">Marketing and Design Advisor</h4></div><div class="col_3"><a href="/u/lior+zyzman" title="Lior Zyzman" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 7.92"></div><div class="image_background" style="background-image:url('/images/icos/team/67-2573.jpg');"></div></a><h3 class="notranslate">Lior Zyzman</h3><h4 class="notranslate">Legal advisor</h4><div class="socials"><a href="https://www.linkedin.com/in/lior-zysman-2977963/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/mitchell+loureiro" title="Mitchell Loureiro" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 16.22"></div><div class="image_background" style="background-image:url('/images/icos/team/67-2574.jpg');"></div></a><h3 class="notranslate">Mitchell Loureiro</h3><h4 class="notranslate">Marketing Advisor</h4><div class="socials"><a href="https://www.linkedin.com/in/mitchellloureiro/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div></div>                        </div>
+							<div class="row"><div class="col_3"><a href="/u/ryo+nomura" title="Ryo Nomura" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 8.91"></div><div class="image_background" style="background-image:url('/images/icos/team/67-720.jpg');"></div></a><h3 class="notranslate">Ryo Nomura</h3><h4 class="notranslate">Bitproperty CEO</h4></div><div class="col_3"><a href="/u/shunta+oka" title="Shunta Oka" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 8.91"></div><div class="image_background" style="background-image:url('/images/icos/team/67-724.jpg');"></div></a><h3 class="notranslate">Shunta Oka</h3><h4 class="notranslate">Project Manager and UI/UX Lead</h4><div class="socials"><a href="https://www.linkedin.com/in/shunta-oka-a1775770/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/hayato+shimomae" title="Hayato Shimomae" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 8.91"></div><div class="image_background" style="background-image:url('/images/icos/team/67-725.jpg');"></div></a><h3 class="notranslate">Hayato Shimomae</h3><h4 class="notranslate">Bitproperty Full Stack Engineer</h4><div class="socials"><a href="https://www.facebook.com/shimomaehayato" rel="nofollow" target="_blank" class="facebook">Facebook</a></div></div><div class="col_3"><a href="/u/ryo+hasegawa" title="Ryo Hasegawa" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 8.91"></div><div class="image_background" style="background-image:url('/images/icos/team/67-726.jpg');"></div></a><h3 class="notranslate">Ryo Hasegawa</h3><h4 class="notranslate">Bitproperty Backend Engineer</h4><div class="socials"><a href="https://www.facebook.com/ryo.hasegawa.752" rel="nofollow" target="_blank" class="facebook">Facebook</a></div></div><div class="col_3"><a href="/u/rie+igarashi" title="Rie Igarashi" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 8.91"></div><div class="image_background" style="background-image:url('/images/icos/team/67-2569.jpg');"></div></a><h3 class="notranslate">Rie Igarashi</h3><h4 class="notranslate">Public Relations and Marketing Specialist</h4><div class="socials"><a href="https://www.facebook.com/rieigarashi08" rel="nofollow" target="_blank" class="facebook">Facebook</a></div></div><div class="col_3"><a href="/u/patrick+storchenegger" title="Patrick Storchenegger" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 14.21"></div><div class="image_background" style="background-image:url('/images/icos/team/67-2570.jpg');"></div></a><h3 class="notranslate">Patrick Storchenegger</h3><h4 class="notranslate">Bitproperty Legal Advisor</h4></div><div class="col_3"><a href="/u/francis+müller" title="Francis Müller" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 8.91"></div><div class="image_background" style="background-image:url('/images/icos/team/67-2571.jpg');"></div></a><h3 class="notranslate">Francis Müller</h3><h4 class="notranslate">Support and token holder relations</h4><div class="socials"><a href="https://www.facebook.com/francis.mueller.3" rel="nofollow" target="_blank" class="facebook">Facebook</a></div></div><div class="col_3"><a href="/u/dr.+angelina+parfenova" title="Dr. Angelina Parfenova" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 8.91"></div><div class="image_background" style="background-image:url('/images/icos/team/67-2572.jpg');"></div></a><h3 class="notranslate">Dr. Angelina Parfenova</h3><h4 class="notranslate">Energy Advisor</h4></div></div><h3 class="notranslate">Advisors</h3><div class="row"><div class="col_3"><a href="/u/yonatan+ben+shimon" title="Yonatan Ben Shimon" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 12.91"></div><div class="image_background" style="background-image:url('/images/icos/team/67-721.jpg');"></div></a><h3 class="notranslate">Yonatan Ben Shimon</h3><h4 class="notranslate">General Advisor</h4><div class="socials"><a href="https://www.linkedin.com/in/yonatan-ben-shimon-84993668/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/max+richardson" title="Max Richardson" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 10.91"></div><div class="image_background" style="background-image:url('/images/icos/team/67-722.jpg');"></div></a><h3 class="notranslate">Max Richardson</h3><h4 class="notranslate">Marketing and Design Advisor</h4></div><div class="col_3"><a href="/u/lior+zyzman" title="Lior Zyzman" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 8.91"></div><div class="image_background" style="background-image:url('/images/icos/team/67-2573.jpg');"></div></a><h3 class="notranslate">Lior Zyzman</h3><h4 class="notranslate">Legal advisor</h4><div class="socials"><a href="https://www.linkedin.com/in/lior-zysman-2977963/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div><div class="col_3"><a href="/u/mitchell+loureiro" title="Mitchell Loureiro" class="image"><div class="icon_iss" data-tooltip="ICO Success Score: 17.31"></div><div class="image_background" style="background-image:url('/images/icos/team/67-2574.jpg');"></div></a><h3 class="notranslate">Mitchell Loureiro</h3><h4 class="notranslate">Marketing Advisor</h4><div class="socials"><a href="https://www.linkedin.com/in/mitchellloureiro/" rel="nofollow" target="_blank" class="linkedin">LinkedIn</a></div></div></div>                        </div>
                                                                 <div style="display:none;" class="tab_content" id="financial">
                             <h2>Financial</h2>
                                                         <div class="box">
@@ -725,39 +740,39 @@ and global investment opportunity." />
                         <h4>ICOs that might interest you</h4>
                         <div class="row">
                             <div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/coincasso" class="image" style="background-image:url('/images/icos/logos/coincasso.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color3">3.4</span></div></a>
-										<div class="content">
-											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/coincasso"><h3 class="notranslate">CoinCasso</h3></a>
-											<p>European Licensed Hybrid Cryptocurrency Exchange.</p>
-											<div class="bottom">
-												<div class="time"><div class="icon"></div>276 days 14 hours left</div>
-											</div>
-										</div>
-									</div><div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/hyperquant" class="image" style="background-image:url('/images/icos/logos/hyperquant.jpg');"><div class="tags"><span class="rate color4">4.2</span></div></a>
-										<div class="content">
-											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/hyperquant"><h3 class="notranslate">HyperQuant</h3></a>
-											<p>HyperQuant is a professional platform for automated crypto trading, asset management an...</p>
-											<div class="bottom">
-												
-											</div>
-										</div>
-									</div><div class="col_4">
 										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/global-property-register" class="image" style="background-image:url('/images/icos/logos/global-property-register.jpg');"><div class="tags"><span class="rate color5">4.6</span></div></a>
 										<div class="content">
 											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/global-property-register"><h3 class="notranslate">Global Property Register</h3></a>
 											<p>Global Property Register -Where Blockchain and Artificial Intelligence Meet.</p>
 											<div class="bottom">
-												<div class="time">48 days 14 hours left</div>
+												<div class="time">45 days 18 hours left</div>
 											</div>
 										</div>
 									</div><div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/tecracoin" class="image" style="background-image:url('/images/icos/logos/tecracoin.jpg');"><div class="tags"><span class="rate color5">4.7</span></div></a>
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/talentico" class="image" style="background-image:url('/images/icos/logos/talentico.jpg');"><div class="tags"><span class="rate color4">3.9</span></div></a>
 										<div class="content">
-											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/tecracoin"><h3 class="notranslate">TecraCoin</h3></a>
-											<p>The mission of Tecra project is to compose a research and investment holding.</p>
+											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/talentico"><h3 class="notranslate">Talentico</h3></a>
+											<p>Global decentralized ecosystem based on blockchain, where talented cryptoinvestors earn...</p>
 											<div class="bottom">
-												<div class="time"><div class="icon"></div>123 days 14 hours left</div>
+												<div class="time"><div class="icon"></div>Starts in 77 days 18 hours</div>
+											</div>
+										</div>
+									</div><div class="col_4">
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/loligo" class="image" style="background-image:url('/images/icos/logos/loligo.jpg');"><div class="tags"><span class="rate color4">4.3</span></div></a>
+										<div class="content">
+											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/loligo"><h3 class="notranslate">Loligo</h3></a>
+											<p>LOLIGO is the safest and most advanced ICO crowdfunding platform built on top of indepe...</p>
+											<div class="bottom">
+												
+											</div>
+										</div>
+									</div><div class="col_4">
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/viaz" class="image" style="background-image:url('/images/icos/logos/viaz.jpg');"><div class="tags"><span class="rate color4">4.1</span></div></a>
+										<div class="content">
+											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/viaz"><h3 class="notranslate">Viaz</h3></a>
+											<p>The utility of VIAZ is to provide a decentralized funding platform, connecting its user...</p>
+											<div class="bottom">
+												<div class="time"><div class="icon"></div>Starts in 28 days 18 hours</div>
 											</div>
 										</div>
 									</div>                        </div>

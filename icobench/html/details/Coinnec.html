@@ -41,7 +41,7 @@
 						<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 						<meta name="theme-color" content="#ffffff">
 						<link title="ICObench" type="application/opensearchdescription+xml" rel="search" href="https://icobench.com/opensearch.xml">
-						<link href="/css/style.css?v=1553781206" id="css" rel="stylesheet" type="text/css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+						<link href="/css/style.css?v=1553870594" id="css" rel="stylesheet" type="text/css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script><script>
 										  !function(f,b,e,v,n,t,s)
@@ -222,7 +222,12 @@ Coinnec tokens make it easy for the users to purchase services and other conte
 
                     <div itemscope itemtype="http://schema.org/Organization"><div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="rating"><meta property="worstRating" content="0">
 									<div itemprop="ratingValue" content="2.6"> 
-										<div class="rate color3">2.6</div>
+
+								    <a class="view_rating" href="#" onclick="$([document.documentElement, document.body]).animate({ scrollTop: $('#scrollhere').offset().top - 20 }, 250); openPage('ratings',event); return false" title="View rating distribution"><div class="rate color3">2.6</div></a>
+
+                                    
+
+
 										<a target="_blank" onclick="ga('send', 'event', 'ICOprofile', 'What is rating?', 'Coinnec');" href="/ratings" title="What is this?" class="help"></a>
 										<span style="display:none;" itemprop="ratingCount" content="1">1</span>
 										<small>0 expert ratings</small>
@@ -257,13 +262,23 @@ Coinnec tokens make it easy for the users to purchase services and other conte
                                                     </div>
                                                 </div>
                                             </div>
-                                            <a class="view_rating" href="#" onclick="$([document.documentElement, document.body]).animate({ scrollTop: $('#scrollhere').offset().top - 20 }, 250); openPage('ratings',event); return false" title="View rating distribution">View rating distribution</a>
+                                            
+                                            <style>
+                                            .ssrow { color: #000; text-align: right; font-size: 12px; text-decoration: none; margin: 0 auto 0 0; font-weight:normal;}
+                                            .sspdf { background:url("../images/pdf.svg") no-repeat;background-size:20px 20px;background-position:0px 0px; width:20px; height:20px; display:inline-block; vertical-align: middle; margin-right:4px; margin-top:-4px;}
+                                            .sspro {border-radius:4px; border:1px solid #5a67b9; background-color:white; padding:1px 5px; color:#5a67b9;margin-left:4px;}
+                                            .ssrow:hover > .sspro {background-color:#5a67b9;color:white;border:1px solid #5a67b9;}
+
+                                            </style>
+
+
+
+                                            <a class="ssrow" href="/pro/?utm_source=ico&utm_medium=coinnec" title="Coinnec full analytical review in PDF">
+                                            <i class="sspdf"></i>Review: coming soon <span class="sspro">PRO</span></a>
+
 										</div>
 									</div>
-								</div></div>                        <div class="icoFullReport">
-                            <a href="/pro?utm_campaign=im2019provision&utm_source=ico&utm_medium=coinnec"><span class="pro-icon" style="border:1px solid #fff;margin-right:5px;margin-top:-3px">PRO</span>vision: ICO in details</a>
-                        </div>
-                        
+								</div></div>
                     <div class="ico-profile-hitbtc"><a href="https://hitbtc.com/?ref_id=5c11455aa5c47" target="_blank"><img src="/images/hiter_bench.svg"></a></div>                    
                     <div class="financial_data">
                                                     <div class="row">
@@ -569,21 +584,21 @@ Coinnec tokens make it easy for the users to purchase services and other conte
                         <h4>ICOs that might interest you</h4>
                         <div class="row">
                             <div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/coincasso" class="image" style="background-image:url('/images/icos/logos/coincasso.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color3">3.4</span></div></a>
-										<div class="content">
-											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/coincasso"><h3 class="notranslate">CoinCasso</h3></a>
-											<p>European Licensed Hybrid Cryptocurrency Exchange.</p>
-											<div class="bottom">
-												<div class="time"><div class="icon"></div>276 days 14 hours left</div>
-											</div>
-										</div>
-									</div><div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/livenpay" class="image" style="background-image:url('/images/icos/logos/livenpay.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">4.3</span></div></a>
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/livenpay" class="image" style="background-image:url('/images/icos/logos/livenpay.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">4.4</span></div></a>
 										<div class="content">
 											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/livenpay"><h3 class="notranslate">LivenPay</h3></a>
 											<p>Liven is an incentive-based mobile payments gateway and ecosystem built for the lifesty...</p>
 											<div class="bottom">
-												<div class="time"><div class="icon"></div>26 days 14 hours left</div>
+												<div class="time"><div class="icon"></div>23 days 18 hours left</div>
+											</div>
+										</div>
+									</div><div class="col_4">
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/faireum" class="image" style="background-image:url('/images/icos/logos/faireum.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color5">4.5</span></div></a>
+										<div class="content">
+											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/faireum"><h3 class="notranslate">Faireum</h3></a>
+											<p>A Fair Gambling Blockchain Network for All Faireum is a public blockchain which focuses...</p>
+											<div class="bottom">
+												<div class="time">22 days 18 hours left</div>
 											</div>
 										</div>
 									</div><div class="col_4">
@@ -592,16 +607,16 @@ Coinnec tokens make it easy for the users to purchase services and other conte
 											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/migranet"><h3 class="notranslate">Migranet</h3></a>
 											<p>The world’s first Immigration Platform combining artificial intelligence, cryptocurre...</p>
 											<div class="bottom">
-												<div class="time"><div class="icon"></div>138 days 14 hours left</div>
+												<div class="time"><div class="icon"></div>135 days 18 hours left</div>
 											</div>
 										</div>
 									</div><div class="col_4">
-										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/dexon" class="image" style="background-image:url('/images/icos/logos/dexon.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">4.0</span></div></a>
+										<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/volentix" class="image" style="background-image:url('/images/icos/logos/volentix.jpg');"><div class="tags"><object><a href="/premium" title="Premium" class="premium">Premium</a></object><span class="rate color4">4.3</span></div></a>
 										<div class="content">
-											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/dexon"><h3 class="notranslate">DEXON</h3></a>
-											<p>DEXON is a distributed ledger technology designed to solve the problems inherent in oth...</p>
+											<a onclick="ga('send', 'event', 'ICOprofile', 'Similar ICOs');" href="/ico/volentix"><h3 class="notranslate">Volentix</h3></a>
+											<p>Volentix is building a decentralized digital assets exchange connected with a secure mu...</p>
 											<div class="bottom">
-												<div class="time"><div class="icon"></div>31 days 14 hours left</div>
+												<div class="time"><div class="icon"></div>30 days 18 hours left</div>
 											</div>
 										</div>
 									</div>                        </div>
