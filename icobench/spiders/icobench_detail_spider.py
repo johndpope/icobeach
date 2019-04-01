@@ -45,15 +45,20 @@ class IcobenchDetailSpider(scrapy.Spider):
             filename = self.root_path + '/html/details/status.text'
             m_list = []
             scrapyProjectListCount = ScrapyProjectListModel().get_count()
-            for key in range(1, scrapyProjectListCount):
+            for key in range(1, 5343):
                 m_list.append(key)
                 # 关闭数据库
                 scrapy_db.close()
             print('m_list:'+str(m_list))
+            print('m_list_len:', int(len(m_list)))
+            line_list = []
             with open(filename, 'r') as f:
                 line = f.readline().strip('\n').strip()
                 print("line1", line)
                 while line != None and line != '':
+                    # line_list.append(line)
+                    # print("line_list", line_list)
+                    # print("line_list_len", len(line_list))
                     print("line", line)
                     m_list.remove(int(line))
                     # m_list[int(line)-1]
