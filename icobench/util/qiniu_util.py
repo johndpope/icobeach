@@ -6,7 +6,7 @@ import qiniu.config
 import requests
 import os
 import json
-from .uuid_util import UUIDUtil
+from icobench.util.uuid_util import UUIDUtil
 
 class QiniuUtil():
     # 需要填写你的 Access Key 和 Secret Key
@@ -58,19 +58,19 @@ class QiniuUtil():
         return status
 
 
-# if __name__ == '__main__':
-#     s_url="https://pbs.twimg.com/profile_images/1050633669583364097/HovTdr6k_400x400.jpg"
-#     # s_url="http://ruidian.mobi/img/xinwenpic.jpg"
-#     # s_url="https%3a%2f%2fpbs.twimg.com%2fprofile_images%2f1050633669583364097%2fHovTdr6k_400x400.jpg"
-#     # f_name = "HovTdr6k_400x400.jpg"
-#     f_name = UUIDUtil().get_uuid()
-#     print(f_name)
-#     print(QiniuUtil().upload_url2file(s_url,f_name))
-#     #"img.lvluozhibao.com/xinwenpic.jpg"
-#     # r = requests.get(s_url)
-#     # print(r)
-#     # print(r.text)
-#     # localfile = "./temp/" + f_name
-#     # os.remove(localfile)
+if __name__ == '__main__':
+    s_url="https://pbs.twimg.com/profile_images/1050633669583364097/HovTdr6k_400x400.jpg"
+    # s_url="http://ruidian.mobi/img/xinwenpic.jpg"
+    # s_url="https%3a%2f%2fpbs.twimg.com%2fprofile_images%2f1050633669583364097%2fHovTdr6k_400x400.jpg"
+    # f_name = "HovTdr6k_400x400.jpg"
+    f_name = UUIDUtil().get_uuid()
+    print(f_name)
+    print(QiniuUtil().upload_url2file(s_url,f_name))
+    #"img.lvluozhibao.com/xinwenpic.jpg"
+    # r = requests.get(s_url)
+    # print(r)
+    # print(r.text)
+    # localfile = "./temp/" + f_name
+    # os.remove(localfile)
 
 

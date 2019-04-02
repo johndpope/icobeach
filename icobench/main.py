@@ -6,3 +6,5 @@ from scrapy import cmdline
 
 cmdline.execute('scrapy crawl icobench_detail_spider'.split())
 
+# cmdline.execute('scrapy crawl movedata_kntt_test_service'.split())
+

@@ -42,7 +42,7 @@ class ProjectMediaModel(BaseKnttModel):
     2019-03-22
     """
 
-    def updata_model(self, model):
+    def update_model(self, model):
         if model is not None:
             ProjectMediaModel.replace(project_id=model.project_id,
                                       name=model.name,

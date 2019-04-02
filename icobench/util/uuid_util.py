@@ -1,11 +1,8 @@
-import  json
+import json
 from peewee import *
 import uuid
 import datetime
 import random,string
-import time, base64, string
-from hashlib import md5
-import os,binascii
 
 class UUIDUtil(TextField):
 
@@ -25,7 +22,7 @@ class UUIDUtil(TextField):
         return "session-"+uuid.uuid4().hex
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
     # print(UUIDUtil().tid_maker())
     # name = "test_name"
     # namespace = uuid.NAMESPACE_URL
@@ -33,7 +30,7 @@ if __name__ == '__main__':
     # print(uuid.uuid3(namespace, name))
     # print(uuid.uuid4())
     # print(uuid.uuid5(namespace, name))
-    print(UUIDUtil().get_session())
+    # print(UUIDUtil().get_session())
 
 
 

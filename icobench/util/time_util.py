@@ -29,5 +29,16 @@ class TimeUtil():
         str_time = e_time.strftime("%c")
         return str_time
 
+    # 将字符串time转为datetime
+    def str_time_todatatime(self,str_time):
+        print('str_time:' + str(str_time))
+        date_time = datetime.datetime.strptime(str_time, "%Y-%m-%d")
+        return date_time
+
+#     英式时间转中式时间
+    def en_datetime_to_zh_datetime(self,time):
+        print('time_format' + str(time))
+        time_format = datetime.datetime.strptime(time, '%d %b %Y')
+        return time_format
 
 

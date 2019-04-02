@@ -86,7 +86,7 @@ class ProjectIcoModel(BaseKnttModel):
     2019-03-21
     """
 
-    def updata_model(self, model):
+    def update_model(self, model):
         if model is not None:
             ProjectIcoModel.replace(name=model.name,
                                     project_id=model.project_id,

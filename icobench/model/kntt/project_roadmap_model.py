@@ -42,7 +42,7 @@ class ProjectRoadmapModel(BaseKnttModel):
     2019-03-21
     """
 
-    def updata_model(self, model):
+    def update_model(self, model):
         if model is not None:
             ProjectRoadmapModel.replace(project_id=model.project_id,
                                         time=model.time,

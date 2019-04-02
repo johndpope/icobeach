@@ -1,4 +1,4 @@
-from icobench.model.kntt.base_kntt_model import BaseKnttModel, qishi_db
+from icobench.model.kntt.base_kntt_model import BaseKnttModel
 from peewee import *
 import datetime
 
@@ -9,10 +9,11 @@ ProjectModel项目model层
 
 class ProjectModel(BaseKnttModel):
     # CharField：字符串类型
+    id = IntegerField(null=True)
     name = CharField(unique=True, null=True)  # 名称
     ico = IntegerField(default=0, null=True)  # 是否ICO ；0：否；1：是
     lab = TextField(unique=True, null=True)  # 标签（以“,”分割）
-    slogan = TextField(unique=True, null=True)  # 标签（以“,”分割）
+    slogan = TextField(unique=True, null=True)  # 宣传语
     detail_title = TextField(unique=True, null=True)  # 项目标题
     logo = TextField(unique=True, null=True)  # logo
     homepage = TextField(unique=True, null=True)  # 官网
@@ -36,6 +37,8 @@ class ProjectModel(BaseKnttModel):
     voting_rules = TextField(unique=True, null=True)  # 投票规则
     is_mining = IntegerField(default=0, null=True)  # 是否支持挖矿（0：否；1：是）
     seq = IntegerField(default=0, null=True)  # 值越大越靠前
+    created_at = DateTimeField(default=datetime.datetime.now)
+    updated_at = DateTimeField(default=datetime.datetime.now)
 
     """
     计算总数量
@@ -58,13 +61,26 @@ class ProjectModel(BaseKnttModel):
         return None
 
     """
+    根据id获取信息
+    By Ada
+    2019-04-02
+    """
+
+    def get_by_name(self, name):
+        for Model in ProjectModel.select().where(ProjectModel.name == name):
+            return Model
+        return None
+
+    """
     跟新和新建
     By Ada
     2019-01-29
     """
 
-    def updata_model(self, model):
+    def update_model(self, model):
+        print('model_update_model1:' + str(model))
         if model is not None:
+            print('model:' + str(model))
             ProjectModel.replace(name=model.name,
                                  ico=model.ico,
                                  lab=model.lab,
@@ -92,17 +108,41 @@ class ProjectModel(BaseKnttModel):
                                  voting_rules=model.voting_rules,
                                  is_mining=model.is_mining,
                                  seq=model.seq,
-                                 )\
+                                 ) \
                 .on_conflict(
                 # 更新
                 update={
                     ProjectModel.ico: model.ico,
                     ProjectModel.lab: model.lab,
                     ProjectModel.slogan: model.slogan,
-                })\
+                    ProjectModel.detail_title: model.detail_title,
+                    ProjectModel.logo: model.logo,
+                    ProjectModel.homepage: model.homepage,
+                    ProjectModel.white_paper: model.white_paper,
+                    ProjectModel.video: model.video,
+                    ProjectModel.industry: model.industry,
+                    # ProjectModel.project_img: model.project_img,
+                    ProjectModel.detail_excerpt: model.detail_excerpt,
+                    ProjectModel.detail_desc: model.detail_desc,
+                    ProjectModel.score: model.score,
+                    # ProjectModel.consents_num: model.consents_num,
+                    # ProjectModel.reading_num: model.reading_num,
+                    # ProjectModel.comments_num: model.comments_num,
+                    # ProjectModel.follow_num: model.follow_num,
+                    # ProjectModel.is_vip: model.is_vip,
+                    # ProjectModel.recommend: model.recommend,
+                    # ProjectModel.language: model.language,
+                    ProjectModel.country: model.country,
+                    ProjectModel.kyc_restriction: model.kyc_restriction,
+                    # ProjectModel.is_exchange: model.is_exchange,
+                    # ProjectModel.voting_rules: model.voting_rules,
+                    # ProjectModel.is_mining: model.is_mining,
+                    # ProjectModel.seq: model.seq,
+                }) \
                 .execute()
+            print('model_update_model2:' + str(model))
         return Model
 
 
-class Meta:
-    table_name = "t_project_info"  # 表名
+    class Meta:
+        table_name = "t_project_info"  # 表名
