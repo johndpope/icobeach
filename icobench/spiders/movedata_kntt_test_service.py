@@ -45,6 +45,8 @@ class MovedataKnttTestService():
             print('start_time:' + '关闭数据库')
             # 项目名字
             scrapyProjectList_name = scrapyProjectList.name  # 名字
+            print('scrapyProjectList_name:' + str(scrapyProjectList_name))
+            print('scrapyProjectList_id:' + str(scrapyProjectList.id))
             # 判断kntt数据库中是否存在此项目
             project_model = ProjectModel.get_by_name(self, scrapyProjectList_name)
             # 关闭数据库
@@ -55,11 +57,13 @@ class MovedataKnttTestService():
                 # scrapyProjectList_white_list = scrapyProjectList.white_list  # 是否存在白名单
                 scrapyProjectList_limit_countries = scrapyProjectList.limit_countries  # 限制国家
                 scrapyProjectList_start_time = scrapyProjectList.start_time  # 开始时间
-                if scrapyProjectList_start_time != '':
+                print('scrapyProjectList_start_time:' + str(scrapyProjectList_start_time))
+                if scrapyProjectList_start_time != '' and scrapyProjectList_start_time != 'Unknown':
                     scrapyProjectList_start_time = TimeUtil.en_datetime_to_zh_datetime(self,
                                                                                        scrapyProjectList_start_time),
                 scrapyProjectList_end_time = scrapyProjectList.end_time  # 结束时间
-                if scrapyProjectList_end_time != '':
+                print('scrapyProjectList_end_time:' + str(scrapyProjectList_end_time))
+                if  scrapyProjectList_start_time is not None and scrapyProjectList_end_time != '' and scrapyProjectList_start_time != 'Unknown':
                     scrapyProjectList_end_time = TimeUtil.en_datetime_to_zh_datetime(self, scrapyProjectList_end_time),
                 scrapyProjectList_score = scrapyProjectList.score  # 项目评分
                 # 根据项目列表id获取项目详情
@@ -76,6 +80,9 @@ class MovedataKnttTestService():
                     scrapyProjectDetail_homepage = scrapyProjectDetails.homepage  # 官网
                     scrapyProjectDetail_white_paper = scrapyProjectDetails.white_paper  # 白皮书
                     scrapyProjectDetail_video = scrapyProjectDetails.video  # 视频链接
+                    print('scrapyProjectDetail_video:' + scrapyProjectDetail_video)
+                    if scrapyProjectDetail_video != '':
+                        scrapyProjectDetail_video = self.trans_qiniu(scrapyProjectDetail_video),
                     scrapyProjectDetail_industry = scrapyProjectDetails.industry  # 行业标签
                     scrapyProjectDetail_detail_excerpt = scrapyProjectDetails.detail_excerpt  # 摘要
                     scrapyProjectDetail_detail_desc = scrapyProjectDetails.detail_desc  # 项目介绍
@@ -89,6 +96,7 @@ class MovedataKnttTestService():
                     scrapyProjectDetail_ico_accepting = scrapyProjectDetails.ico_accepting  # 接受币种
                     scrapyProjectDetail_ico_circulating_supply = scrapyProjectDetails.ico_circulating_supply  # 销售百分比
                     scrapyProjectDetail_ico_preico_start_date = scrapyProjectDetails.ico_preico_start_date  # 预售开始时间
+                    print('scrapyProjectDetail_ico_preico_start_date:' + scrapyProjectDetail_ico_preico_start_date)
                     if scrapyProjectDetail_ico_preico_start_date != '':
                         scrapyProjectDetail_ico_preico_start_date = TimeUtil.str_time_todatatime(self,
                                                                                                  scrapyProjectDetail_ico_preico_start_date),
@@ -97,6 +105,7 @@ class MovedataKnttTestService():
                     print('scrapyProjectDetail_ico_preico_start_date:' + str(scrapyProjectDetail_ico_preico_start_date))
 
                     scrapyProjectDetail_ico_preico_end_date = scrapyProjectDetails.ico_preico_end_date  # 预售结束时间
+                    print('scrapyProjectDetail_ico_preico_end_date:' + scrapyProjectDetail_ico_preico_end_date)
                     if scrapyProjectDetail_ico_preico_end_date != '':
                         scrapyProjectDetail_ico_preico_end_date = TimeUtil.str_time_todatatime(self,
                                                                                                scrapyProjectDetail_ico_preico_end_date),
@@ -105,6 +114,7 @@ class MovedataKnttTestService():
                     print('scrapyProjectDetail_ico_preico_end_date:' + str(scrapyProjectDetail_ico_preico_end_date))
                     scrapyProjectDetail_ico_preico_price = scrapyProjectDetails.ico_preico_price  # 预售价格
                     scrapyProjectDetail_ico_public_start_date = scrapyProjectDetails.ico_public_start_date  # 公募开始时间
+                    print('scrapyProjectDetail_ico_public_start_date:' + scrapyProjectDetail_ico_public_start_date)
                     if scrapyProjectDetail_ico_public_start_date != '':
                         scrapyProjectDetail_ico_public_start_date = TimeUtil.str_time_todatatime(self,
                                                                                                  scrapyProjectDetail_ico_public_start_date),
@@ -112,6 +122,7 @@ class MovedataKnttTestService():
                         scrapyProjectDetail_ico_public_start_date = None
                     print('scrapyProjectDetail_ico_public_start_date:' + str(scrapyProjectDetail_ico_public_start_date))
                     scrapyProjectDetail_ico_public_end_date = scrapyProjectDetails.ico_public_end_date  # 公募结束时间
+                    print('scrapyProjectDetail_ico_public_end_date:' + str(scrapyProjectDetail_ico_public_end_date))
                     if scrapyProjectDetail_ico_public_end_date != '':
                         scrapyProjectDetail_ico_public_end_date = TimeUtil.str_time_todatatime(self,
                                                                                                scrapyProjectDetail_ico_public_end_date),
@@ -127,7 +138,7 @@ class MovedataKnttTestService():
 
                     scrapyProjectDetail_roadmap_arr = scrapyProjectDetails.roadmap  # 路线
 
-                    print('scrapyProjectDetail_video:' + scrapyProjectDetail_video)
+                    # print('scrapyProjectDetail_video:' + scrapyProjectDetail_video)
                     # 组合项目信息数据
                     test_kntt_project_list_model = ProjectModel(
                         name=scrapyProjectList_name,
@@ -138,7 +149,7 @@ class MovedataKnttTestService():
                         logo=self.trans_qiniu(scrapyProjectList_logo),
                         homepage=scrapyProjectDetail_homepage,
                         white_paper=scrapyProjectDetail_white_paper,
-                        video=self.trans_qiniu(scrapyProjectDetail_video),
+                        video=scrapyProjectDetail_video,
                         industry=scrapyProjectDetail_industry,
                         detail_excerpt=scrapyProjectDetail_detail_excerpt,
                         detail_desc=scrapyProjectDetail_detail_desc,
