@@ -51,6 +51,7 @@ class MovedataKnttTestService():
             project_model = ProjectModel.get_by_name(self, scrapyProjectList_name)
             # 关闭数据库
             qishi_db.close()
+            scrapy_db.close()
             if project_model is None:
                 scrapyProjectList_logo = scrapyProjectList.logo  # logo
                 scrapyProjectList_kyc = scrapyProjectList.kyc  # 是否存在kyc
@@ -70,8 +71,8 @@ class MovedataKnttTestService():
                 project_list_id = scrapyProjectList.id  # 列表id
                 print('project_list_id:' + str(project_list_id))
                 # 获取详情
-                scrapyProjectDetails = ScrapyProjectDetailModel.get_by_project_list_id(ScrapyProjectDetailModel,
-                                                                                       project_list_id)
+                scrapyProjectDetails = ScrapyProjectDetailModel.get_by_project_list_id(self , project_list_id)
+                print('scrapyProjectDetails:' + str(scrapyProjectDetails))
                 # 关闭数据库
                 scrapy_db.close()
                 if scrapyProjectDetails is not None:
@@ -296,12 +297,12 @@ if __name__ == '__main__':
     #     scrapy_db.close()
 
     # # 查询抓取表的项目列表信息
-    # scrapyProjectList = ScrapyProjectListModel().get_by_id(3)
-    # # 根据项目列表id获取项目详情
+    # scrapyProjectList = ScrapyProjectListModel().get_by_id(170)
+    # # # 根据项目列表id获取项目详情
     # project_list_id = scrapyProjectList.id
-    # print('project_list_id:' + str(project_list_id))
+    # # print('project_list_id:' + str(project_list_id))
     # scrapyProjectDetails = ScrapyProjectDetailModel.get_by_project_list_id(ScrapyProjectDetailModel, project_list_id)
-    # print('scrapyProjectDetails:' + scrapyProjectDetails.name)
+    # print('scrapyProjectDetails:' + str(scrapyProjectDetails))
     # # 取出媒体数据数组
     # scrapyProjectDetail_media_arr = scrapyProjectDetails.media
     # print('scrapyProjectDetail_media_arr:' + scrapyProjectDetail_media_arr)

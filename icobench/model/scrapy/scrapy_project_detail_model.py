@@ -81,8 +81,7 @@ class ScrapyProjectDetailModel(BaseScrapyModel):
 
     def get_by_project_list_id(self, project_list_id):
         print('project_list_id_model:' + str(project_list_id))
-        for Model in ScrapyProjectDetailModel.select().where(
-                ScrapyProjectDetailModel.project_list_id == project_list_id):
+        for Model in ScrapyProjectDetailModel.select().where(ScrapyProjectDetailModel.project_list_id == project_list_id):
             return Model
         return None
 
