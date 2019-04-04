@@ -59,12 +59,12 @@ class MovedataKnttTestService():
                 scrapyProjectList_limit_countries = scrapyProjectList.limit_countries  # 限制国家
                 scrapyProjectList_start_time = scrapyProjectList.start_time  # 开始时间
                 print('scrapyProjectList_start_time:' + str(scrapyProjectList_start_time))
-                if scrapyProjectList_start_time != '' and scrapyProjectList_start_time != 'Unknown':
+                if scrapyProjectList_start_time is not None and scrapyProjectList_start_time != '' and scrapyProjectList_start_time != 'Unknown':
                     scrapyProjectList_start_time = TimeUtil.en_datetime_to_zh_datetime(self,
                                                                                        scrapyProjectList_start_time),
                 scrapyProjectList_end_time = scrapyProjectList.end_time  # 结束时间
                 print('scrapyProjectList_end_time:' + str(scrapyProjectList_end_time))
-                if  scrapyProjectList_start_time is not None and scrapyProjectList_end_time != '' and scrapyProjectList_start_time != 'Unknown':
+                if scrapyProjectList_end_time is not None and scrapyProjectList_end_time != '' and scrapyProjectList_end_time != 'Unknown':
                     scrapyProjectList_end_time = TimeUtil.en_datetime_to_zh_datetime(self, scrapyProjectList_end_time),
                 scrapyProjectList_score = scrapyProjectList.score  # 项目评分
                 # 根据项目列表id获取项目详情
@@ -82,7 +82,7 @@ class MovedataKnttTestService():
                     scrapyProjectDetail_white_paper = scrapyProjectDetails.white_paper  # 白皮书
                     scrapyProjectDetail_video = scrapyProjectDetails.video  # 视频链接
                     print('scrapyProjectDetail_video:' + scrapyProjectDetail_video)
-                    if scrapyProjectDetail_video != '':
+                    if scrapyProjectDetail_video is not None and scrapyProjectDetail_video != '' and scrapyProjectDetail_video != 'Unknown':
                         scrapyProjectDetail_video = self.trans_qiniu(scrapyProjectDetail_video),
                     scrapyProjectDetail_industry = scrapyProjectDetails.industry  # 行业标签
                     scrapyProjectDetail_detail_excerpt = scrapyProjectDetails.detail_excerpt  # 摘要
@@ -98,7 +98,7 @@ class MovedataKnttTestService():
                     scrapyProjectDetail_ico_circulating_supply = scrapyProjectDetails.ico_circulating_supply  # 销售百分比
                     scrapyProjectDetail_ico_preico_start_date = scrapyProjectDetails.ico_preico_start_date  # 预售开始时间
                     print('scrapyProjectDetail_ico_preico_start_date:' + scrapyProjectDetail_ico_preico_start_date)
-                    if scrapyProjectDetail_ico_preico_start_date != '':
+                    if scrapyProjectDetail_video != '' and scrapyProjectDetail_video != 'Unknown' and scrapyProjectDetail_video is not None :
                         scrapyProjectDetail_ico_preico_start_date = TimeUtil.str_time_todatatime(self,
                                                                                                  scrapyProjectDetail_ico_preico_start_date),
                     else:
@@ -107,7 +107,7 @@ class MovedataKnttTestService():
 
                     scrapyProjectDetail_ico_preico_end_date = scrapyProjectDetails.ico_preico_end_date  # 预售结束时间
                     print('scrapyProjectDetail_ico_preico_end_date:' + scrapyProjectDetail_ico_preico_end_date)
-                    if scrapyProjectDetail_ico_preico_end_date != '':
+                    if scrapyProjectDetail_video is not None and scrapyProjectDetail_video != '' and scrapyProjectDetail_video != 'Unknown':
                         scrapyProjectDetail_ico_preico_end_date = TimeUtil.str_time_todatatime(self,
                                                                                                scrapyProjectDetail_ico_preico_end_date),
                     else:
@@ -116,7 +116,7 @@ class MovedataKnttTestService():
                     scrapyProjectDetail_ico_preico_price = scrapyProjectDetails.ico_preico_price  # 预售价格
                     scrapyProjectDetail_ico_public_start_date = scrapyProjectDetails.ico_public_start_date  # 公募开始时间
                     print('scrapyProjectDetail_ico_public_start_date:' + scrapyProjectDetail_ico_public_start_date)
-                    if scrapyProjectDetail_ico_public_start_date != '':
+                    if scrapyProjectDetail_video is not None and scrapyProjectDetail_video != '' and scrapyProjectDetail_video != 'Unknown':
                         scrapyProjectDetail_ico_public_start_date = TimeUtil.str_time_todatatime(self,
                                                                                                  scrapyProjectDetail_ico_public_start_date),
                     else:
@@ -124,7 +124,7 @@ class MovedataKnttTestService():
                     print('scrapyProjectDetail_ico_public_start_date:' + str(scrapyProjectDetail_ico_public_start_date))
                     scrapyProjectDetail_ico_public_end_date = scrapyProjectDetails.ico_public_end_date  # 公募结束时间
                     print('scrapyProjectDetail_ico_public_end_date:' + str(scrapyProjectDetail_ico_public_end_date))
-                    if scrapyProjectDetail_ico_public_end_date != '':
+                    if scrapyProjectDetail_video is not None and scrapyProjectDetail_video != '' and scrapyProjectDetail_video != 'Unknown':
                         scrapyProjectDetail_ico_public_end_date = TimeUtil.str_time_todatatime(self,
                                                                                                scrapyProjectDetail_ico_public_end_date),
                     else:
@@ -236,7 +236,9 @@ class MovedataKnttTestService():
             team_name = scrapyProjectDetail_team['name']
             print('team_name:' + team_name)
             team_avatar = scrapyProjectDetail_team['avatar']
-            print('team_avatar:' + team_avatar)
+            if team_avatar is not None and team_avatar != '' and team_avatar != 'Unknown':
+                team_avatar = self.trans_qiniu(team_avatar),
+            print('team_avatar:' + str(team_avatar))
             team_title = scrapyProjectDetail_team['title']
             print('team_title:' + team_title)
             team_socials = scrapyProjectDetail_team['socials']
@@ -246,7 +248,7 @@ class MovedataKnttTestService():
             test_kntt_project_team_model = ProjectTeamModel(
                 project_id=project_list_id,
                 name=team_name,
-                avatar=self.trans_qiniu(team_avatar),
+                avatar=team_avatar,
                 socials=team_socials,
                 title=team_title,
                 language='en',
